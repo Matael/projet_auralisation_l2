@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="projet_auralisation"
+Nom de la mesure="mesure_ballon_reverb_4"
+Date="09/11/2012"
+Opérateur="ep"
+Commentaires="Microphone orienté vers la source (le ballon). Le micro est placé au centre de l'espace des pailasses centrales et la source se trouve en face de l'armoire pres de la porte.\0A\0APlus de temps entre signal de début de mesure et BOUM\0A"
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=10.000000

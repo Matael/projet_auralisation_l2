@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="projet_auralisation"
+Nom de la mesure="mesure_bruit_fond_ampli_reverb_1"
+Date="09/11/2012"
+Opérateur="ep"
+Commentaires="Microphone orienté vers la source (le ballon). Le micro est placé au centre de l'espace des pailasses centrales et la source se trouve en face de l'armoire pres de la porte.\0A"
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=6.000000

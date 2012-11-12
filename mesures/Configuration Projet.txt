@@ -1,0 +1,6 @@
+[Général]
+Version="3.3"
+Nom du projet="projet_auralisation"
+Date="09/11/2012"
+Auteur="LWG"
+Commentaire=""
