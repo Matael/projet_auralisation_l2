@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="Projet_LWG"
+Nom de la mesure="seance2_reverb_mes2"
+Date="16/11/2012"
+Opérateur="ep"
+Commentaires="Source: Ballon\0ASalle : Reverbérante"
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=16.000000
