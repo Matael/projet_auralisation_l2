@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage[top=3cm,right=2.5cm,bottom=2.5cm,left=2.5cm]{geometry}
+
+\renewcommand{\contentsname}{Sommaire}
+\renewcommand{\thesection}{\Roman{section}- }
+\renewcommand{\thesubsection}{\Alph{subsection}) }
+
+
+\title{License SPI -- Projet Auralisation}
+\author{Thomas \textsc{Lechat} \and Xin \textsc{Wang} \and Mathieu \textsc{Gaborit}}
+\date{Note de synthèse -- Novembre 2012}
+
+\begin{document}
+  \maketitle
+
+\tableofcontents
+\newpage
+
+\section{Recherches Bibliographiques} % {{{
+
+Afin de dégrossir un peu le sujet, nous avons cherché à nous renseigner sur l'auralisation.
+
+\subsection{Auralization : An Overview}
+
+Une rapide recherche sur l'Internet nous a permi d'obtenir un document intitulé \\\underline{Auralization : An overview}, écrit par M.
+\textsc{Kleiner}, B.-I. \textsc{Dalenbäck} et P. \textsc{Svensson} à l'occasion de la 91 Convention d' Audio Engineering
+Society en 1991.
+
+Ce document met en évidence quelques techniques majeures d'auralisation. Il traite par ailleurs des différentes difficultées de chacun des systèmes proposés.
+
+Après un court historique de l'auralisation, les auteurs listent les techniques d'auralisation qui leur sont contemporaines, ainsi que les systèmes d'auralisation existants. Cette partie est particulièrement intéressante car elle liste les étapes du procédé.
+
+Ils poursuivent ensuite avec une section dédiée aux sources acoustiques utilisables pour l'auralisation. Le document vient d'ailleurs confirmer une remarque que nous nous étions faite :
+
+\begin{quotation}
+The adequate simulation of natural source test signals is one of the largest problems confronting the auralization of
+auditorium acoustics.
+\end{quotation}
+
+Le document souligne par ailleurs que cette difficulté est liée à la difficulté de description de sources telles que des
+humains ou des instruments de musique.
+
+Le document propose aussi que la vérification et la validation des techniques d'auralisation se fasse par comparaison à
+des enregistrements du même signal pris dans la salle à auraliser.
+
+Le document précise enfin un point intéressant à propos du type de signaux à utiliser :
+
+\begin{quotation}
+In our experience speech is often a good test signal.
+\end{quotation}
+
+Ce point sera à prendre en compte dans la suite du projet. 
+
+\subsection{L'acoustique du Home-Studio}
+
+Xavier Collet a publié sur son blog\footnote{\url{http://xaviercollet.com/}} une série de 8 articles sur le traitement acoustique d'un home-studio. Même si ces articles ne parlent pas le moins du monde d'auralisation, il y est question de traitement acoustique et de mesure de réponse impulsionnelle (RIR, Room Impulse Response).
+
+Bien que ce dernier point nous ait intéressés, il semble que Collet ne cherche pas à déduire manuellement la RIR mais qu'il utilise un logiciel qui s'en charge.
+
+Compte tenu de ce que Collet en dit dans les articles, il semblerait que le logiciel réalise une opération de déconvolution en se basant sur la division par le signal d'origine.
+
+Les articles sont intéressants tout en restant sensiblement hors-sujet.
+
+\subsection{Acoustic Measurements}
+
+Dans nos recherches à la bibliothèque, nous sommes tombés sur \underline{Acoustic Measurements} dont le chapitre 18 \textit{Measurement of the acoustic properties of room, auditorium and studios} nous semblait, de prime abord, intéressant.
+
+Ce livre, s'il décrit bien la conduite de mesure, n'est en aucun cas pertinent ici. Rien de précis n'est donné sur des mesures comme celle de la RIR ou de la réponse fréquentielle.
+
+La lecture de ce chapitre est toutefois instructive pour des mesures plus générales, même si difficile à appliquer ici.
+D'autres chapitre de cet ouvrage pourraient être intéressants : certains traitent de sensiblité matérielle, par exemple...
+
+D'autres recherches bibliographiques viendront, au cours du projet, complèter celle-ci elle seront consignés à la fin du cahier de manipulation. La liste de ces recherches sera finalement incluse dans le rapport final.
+
+% }}}
+\section{Précision des objectifs du projet} % {{{
+
+L'auralisation est un sujet particulièrement vague et le traiter en entier en si peu de temps est un peu présomptueux pour des des étudiants de deuxième année.
+
+Le sujet sera donc restreint à une série d'études comparatives sur plusieurs paramètres et leur influence sur le procédé final d'auralisation.
+Nous essaierons de modifier tour à tour ces paramètres afin de se rendre compte de leur influence sur le résultat final.
+
+Il y en particulier 3 facteurs sur lesquels nous pouvons influer.
+
+\subsection{Mesure de la réponse impusionnelle}
+Le procédé utilisé pour obtenir la réponse impulsionnelle de la salle (et en particulier la source) pourrait avoir une influence importante sur le résultat final.
+
+Nous essaierons donc plusieurs sources pour obtenir cette réponse impulsionnelle :
+\begin{itemize}
+	\item Utilisation d'une baudruche
+    \item Utilisation d'une source électroacoustique
+    \item Utilisation du système Clio (si le temps le permet)
+\end{itemize}
+
+Chacun de ces procédés possède ses propres avantages et inconvénients en termes de temps de mise en oeuvre, de facilité de traitement des mesures, ou de largeur de bande passante de la source choisie.
+
+\subsection{Procédé de convolution}
+Le moyen de convoluer le signal source avec la réponse impulsionnelle pourrait être un des points critiques du procédé d'auralisation.
+
+Nous essaierons 2 moyens de procéder à cette convolution :
+\begin{description}
+	\item[physique :] le signal (anéchoïque) à convoluer est émis dans la salle cible et le signal obtenu est enregistré;
+    \item[mathématique :] connaissant la réponse impulsionnelle de la salle cible, on convolue celle-ci avec le signal anéchoïque voulu.
+\end{description}
+
+Là encore, une comparaison sera mise en place pour déterminer si les résultats entre les deux méthodes sont semblables ou non. Cela permettra notament de qualifier le procédé de mesure de la réponse impulsionnelle.
+
+
+\subsection{Prise en compte de la perception humaine}
+Le troisième objectif de ce projet consiste à prendre en compte la binauralité de la perception humaine afin de pouvoir améliorer les résultats de l'auralisation d'une salle quelconque (rendu plus réaliste).
+
+Pour cela, nous allons effectuer des mesures de réponse impulsionnelle binaurale d'une salle au moyen d'une tête artificielle (2 capteurs sont placés dans chaque oreille).
+
+Le but de l'experience sera de comparer le rendu perceptif entre l'auralisatio utilisant une réponse impulsionnelle prise en un seul point et celle utilisant une réponse impulsionnelle binaurale (prenant en compte le retard entre la réception du son d'une oreille à l'autre).
+
+Le but est donc d'effectuer une auralisation en "stéréo".
+% }}}
+\section{Première séance} % {{{
+
+Au cours de cette première séance de projet à proprement parler, nous avons précisé les objectifs du projet et entamé une série de mesures.
+
+Les résultats de la prmeière partie (concernant les objectifs) sont listés dans la section précédente.
+
+Pour ce qui est des mesures, elles concernent un premier essai d'auralisation.
+
+Avant d'aller plus loin dans ce projet, nous nous sommes dit qu'il pourrait être bon de commencer par l'auralisation de deux salles sans chercher à améliorer le protocole d'une quelconque manière. Il s'agit en effet de prendre en main le matiériel et d'avoir un meilleure idée de ce que le processus d'auralisation implique.
+
+Nous avons donc réalisé des mesures de réponses impulsionnelles de salles au moyen d'une carte d'acquisition et de baudruches.
+
+\subsection{Procédé de mesure de la réponse impulsionnelle d'une salle}
+
+Un microphone possèdant un système de pré-amplification intégré (microphone ICP), alimenté par la carte d'acquisition reliée au PC, a été utilisé pour les mesures. Celui-ci a été placé dans le centre de la salle à environ 2 mètres de la source sonore. Les données sont enregistrées au moyen du logiciel \underline{Analyseur CTTM}.
+
+L'impulsion source est créée par un ballon de baudruche éclaté avec une aiguille au niveau de ce qui nous a semblé être le centre approximatif de la salle.
+
+Pour une mesure précise, nous avons choisi dans un premier temps une salle réverbérante ainsi qu'une salle de TP vide; le but étant d'avoir une différence de réverbération nettement perceptible dans un environnement peu bruyant.
+
+\subsection{Résultats des mesures de la réponse impulsionnelle}
+
+Les paramètres des mesures (fréquence d'échantillonnage, temps d'enregistrement, etc...) ainsi que les courbes obtenues sont disponibles sur le depot Github du projet\footnote{\url{https://github.com/Matael/projet_auralisation_l2}}.
+
+Elles ne figurent pas ici car nous n'en avons pas encore fait une analyse précise et plusieurs d'entres elles doivent être corrélées avec d'autres mesures à venir. En effet, nous avons constaté que certaines d'entre elles étaient difficilement exploitables du fait de bruits parasites d'origine inconnue. Nous devons donc refaire certaines de ces mesures de réponse impulsionnelle à la séance prochaine.
+
+\subsection{Mesure de sons anéchoïques diffusés dans les salles concernées}
+
+\paragraph{Choix de sons anéchoïques}
+
+Dans un second temps, nous avons cherché à nous procurer des sons anéchoïques afin de pouvoir comparer ces 
+
+Une bibliothèque de sons anéchoïque relativement fournie se trouve sur \underline{Freesound}\footnote{\url{http://freesound.net}} (environ 230 sons), nous avons donc décidé d'utiliser ceux-ci dans un premier temps et éventuellement d'enregistrer nos propres sons plus tard si le besoin s'en fait sentir.
+
+\paragraph{Mesures de ces sons dans les salles à étudier}
+
+Une fois quelques sons choisis (ceux-ci sont disponibles sur le dépot Github du projet), nous avons tenté de les diffuser dans les salles à étudier au moyen d'une source omnidirectionnelle et donc d'enregistrer le résultat de la convolution "naturelle" de ces sons avec la réponse impulsionnelle de chacune des deux salles.
+
+Toutefois, par manque de temps, seuls les sons dans la salle réverbérante ont pu être enregistrés. En effet, l'installation d'une source omnidirectionnelle étant assez lourde, nous n'avons pas pu ensuite la deplacer pour finir nos mesures dans le temps de manipulation imparti (à noter que l'amplificateur alimentant la source n'était pas branché correctement, ce qui a occasionné une certaine perte de temps).
+
+\paragraph{Résultats}
+
+Pour une raison inconnue, les sons obtenus nous paraissent difficilement utilisables du fait d'un faible rapport signal/bruit. Nous imputons celui-ci à l'amplificateur de la source omnidirectionnelle qui semblait être en partie défectueux et dont le système de ventilation tournait à plein régime sans raison apparente. Nous devrons donc reprendre ces mesures à la séance suivante.
+
+
+Une fois ces mesures effectuées nous pourrons réaliser notre première auralisation sous \underline{GNU/Octave} et ainsi avoir une première idée de la qualité de rendu atteignable par ce procédé (le processus de mesure n'ayant pas été particulièrement poussé). 
+
+Ce sera là l'objet de la prochaine séance. Par la suite, une étude plus approfondie prenant en compte les différents paramètres que nous pensons importants dans le processus d'auralisation sera menée.
+
+% }}}
+\end{document}
