@@ -20,19 +20,19 @@
 
 \section{Discussion autour des approximations} % {{{
 
-Depuis le début du projet, le procédé de mesure de réponse impulsionnelle a été examiné presque sous tous ses angles.
+Depuis le début du projet, le procédé de mesure de réponse impulsionnelle a été examiné sous presque tous ses angles.
 
-En fait, une partie des problèmes intrinsèques à celui-ci n'avaient pas été pris en compte, il sont donc détaillés dans
+En fait, une partie des problèmes intrinsèques à celui-ci n'avaient pas étés pris en compte, ils sont donc détaillés dans
 les paragraphes qui suivent.
 
-\paragraph{Source omnidirectionnelle}
+\paragraph{Source omnidirectionnelle} % {{{
 
 La mesure de la réponse impulsionnelle est assujettie à l'utilisation d'une source la moins directive possible.
 En effet, on cherche à caractériser la salle à partir de la mesure d'un son direct et de ses réflexions, il ne faut donc
 pas qu'une direction soit privilégiée par la directivité de la source.
 
-Ce problème est particulièrement gènant en hautes fréquences, pour lesquelles la directivité de la source augmente
-sensiblement.
+Ce problème est particulièrement gênant à haute fréquence, en effet la directivité de la source augmentesensiblement
+avec la fréquence.
 
 Dans la recherche d'une source intéressante, le ballon de baudruche avait jusqu'alors été retenu.
 Seulement, compte tenu de l'éclatement du ballon, celui-ci n'est pas réellement omni-directionnel (il est directif,
@@ -41,44 +41,50 @@ principalement vers le point où il est percé).
 Ce n'est pas forcément très grave, mais des mesures avec une source un peu plus omni-directionnelle pourraient être
 intéressantes, à titre de comparaison du moins.
 
-\paragraph{Impulsion infiniment courte}
+% }}}
+\paragraph{Impulsion infiniment courte} % {{{
 
-Il s'agit de mesurer une réponse impulsionnelle (RI), soit, la réponse d'une salle donnée à une impulsion.
+Au cours du projet, il s'agit de mesurer une réponse impulsionnelle (RI), soit, la réponse d'une salle donnée à une
+impulsion.
 
-Une impulsion est, par définition d'amplitude très grande devant le bruit de fond et de durée infiniment courte
+Une impulsion est, par définition, de très grande amplitude devant le bruit de fond et de durée infiniment courte
 (idéalement, un Dirac). Même si mathématiquement cette définition ne pose aucun problème, physiquement, elle est
 fausse.
 
-En effet, le temps de réponse d'un haut-parleur est fini et, selon le temps de réverbération de la salle, pourrait ne
-pas être complètement négligeable. Il en va de même pour le ballon qui, même s'il éclate vite, n'éclate pas
-instantanément.
+En effet, le temps de réponse d'un haut-parleur à une impulsion est fini et, selon le temps de réverbération de la
+salle, pourrait ne pas être complètement négligeable. Il en va de même pour le ballon qui, même s'il éclate vite,
+n'éclate pas instantanément.
 
 Finalement, on ne mesure pas la réponse de la salle à une impulsion mais la réponse de la salle à presque une impulsion,
 on obtient donc presque une RI.
 
-\paragraph{Réponse en fréquence parfaite}
+% }}}
+\paragraph{Réponse en fréquence parfaite} % {{{
 
-Enfin, il a été admis que la bande passante des sources était infinie et plate.
+Il a été admis que la bande passante des sources était infinie et plate.
 
-Un signal présentant ces caractéristiques serait... un dirac. Or, d'après le point précédent, il n'est pas aisé de
-générer un tel signal.
-\paragraph{Comparaison entre convolution physique et mathématique}
+Un signal présentant ces caractéristiques serait typiquement un Dirac ; or, d'après le point précédent, il n'est pas
+aisé de générer un tel signal.
 
-Il a été proposé de comparer la mesure d'un signal émis dans la salle et d'un signal convolué avec la RI de cette salle.
+% }}}
+\paragraph{Comparaison entre convolution physique et mathématique} % {{{
 
-Cela pose un problème du même acabit que les précédents : si le signal sort de la bande passante de la chaine
-d'excitation (particulièrement de celle du haut-parleur) alors celui-ci est modifié parce cette chaine (qui n'est pas du
-tout parfaite).
+Enfin, il a été proposé de comparer la mesure d'un signal émis dans la salle et d'un signal convolué avec la RI de cette
+salle (convolution "physique" et convolution "mathématique").
 
-Il faudrait donc comparer le signal émis dans la pièce réellement et le signal "découpé" par la bande-passante du
+Cela pose un problème du même acabit que les précédents : si la signature fréquentielle du signal est plus grande que la
+bande passante de la chaine d'excitation (particulièrement de celle du haut-parleur) alors celui-ci est modifié par
+cette chaine (qui n'est pas du tout parfaite).
+
+Il faudrait donc comparer le signal réellement émis dans la pièce et le signal "découpé" par la bande-passante du
 haut-parleur convolué avec la RI de la salle.
 
 Un moyen simple de règler le problème serait de procéder comme suit :
 
 \begin{enumerate}
     \item monter une chaine d'excitation et de mesure en chambre anéchoïque;
-    \item mesurer le signal voulu émis par cette chaine;
-    \item diviser le signal obtenu par la réponse en fréquences de la chaine de mesure (on obtient un signal A);
+    \item mesurer le signal voulu émis en salle anéchoïque par cette chaine;
+    \item diviser le signal obtenu par la réponse en fréquence de la chaine de mesure (on obtient un signal A);
     \item convoluer ce signal avec la RI de la salle (on obtient un signal B);
     \item déplacer la chaine d'excitation dans la salle cible;
     \item émettre le signal A avec la même chaine d'excitation et le mesurer (on obtient un signal C);
@@ -86,25 +92,26 @@ Un moyen simple de règler le problème serait de procéder comme suit :
     \item comparer D et B.
 \end{enumerate}
 
-Il s'agit alors d'une comparaison correcte entre un même signal émis directement dans la salle d'une part et convolué
-avec la RI de cette salle de l'autre.
+Il s'agit alors d'une comparaison correcte entre un même signal émis directement dans la salle d'une part et ce même
+signal convolué avec la RI de cette salle de l'autre.
 
-Ces quatre approximations sont gènantes mais mineures, en effet, même si elles rendent imparfait le procédé, elles
-n'empècheront pas de continuer le projet. Il faudra simplement, au moment de tirer des conclusions, rester conscient de
-ces imprécisions.
+% }}}
 
+Ces quatre approximations sont gênantes mais plutôt mineures, en effet, même si elles rendent imparfait le procédé,
+elles n'empècheront pas de continuer le projet. Il faudra simplement, au moment de tirer des conclusions, rester
+conscients de ces imprécisions.
 
 Il faut toutefois leur ajouter les deux points suivants :
 
 \begin{itemize}
-    \item la mesure n'est pas celle de la RI de la salle mais celle de la salle et de ce qui s'y trouve, pour une position de la
-        source et du/des capteur(s) donnée(s);
-    \item la bande-passante et les arondis de quantification (au moment de l'acquisition) viennent s'ajouter aux
+    \item la mesure de RI faite n'est pas celle de la RI de la salle mais celle de la salle et de ce qui s'y trouve,
+    pour une position de la source et du/des capteur(s) donnée(s);
+    \item la bande-passante et les arrondis de quantification (au moment de l'acquisition) viennent s'ajouter aux
         imprécisions, le matériel n'est pas transparent pour le signal;
 \end{itemize}
 
-Finalement, il s'agit d'être conscient que des compromis sont faits pour les mesures. Ceux-ci pourraient conduire à de
-petits défauts d'interprétation.
+Finalement, il s'agit d'être conscients que des compromis sont faits pendant les mesures.
+Ceux-ci pourraient conduire à de petits défauts d'interprétation.
 
 % }}}
 \section{Compte Rendu séance 2} % {{{
@@ -113,7 +120,7 @@ Le montage est présenté en figure~\ref{salle}.
 
 \begin{figure}[h]
     \vfill\begin{center}
-        \includegraphics[scale=0.75]{schema_salle.eps}
+        \includegraphics[scale=0.75]{schema_salle.pdf}
     \end{center}\vfill
     \caption{\label{salle} Schéma de la salle de mesure. La source est en B, les capteurs (tête et micro) sont tour à
 tour placés en A. Les 3 ouvertures présentes dans le mur derrière les capteurs sont des vitres.}
@@ -122,18 +129,20 @@ tour placés en A. Les 3 ouvertures présentes dans le mur derrière les capteur
 Au cours de la séance, il s'est agit de mesurer la réponse impulsionnelle de la salle.
 
 \paragraph{Problèmes d'acquisition}
-L'acquisition a, dans un premier temps posé problème.
-Après avoir changé de cable, de carte d'acquisition et de micro, c'est finalement un n-ième changement de câble qui a
+L'acquisition a, dans un premier temps, posé problème.
+Après avoir changé de câble, de carte d'acquisition et de micro, c'est finalement un n-ième changement de câble qui a
 résolu le problème. Merci à MM. Lihoreau et Dalmont pour leur aide.
 
 \paragraph{Fabrication de câble}
-Afin de relier le pré-amplificateur de la tête artificielle à la carte d'acquisition. Il s'agit d'un cable Jack 6.35
-Stéréo $\rightarrow$ Double banane (masse distribuée).
+Afin de relier le pré-amplificateur de la tête artificielle à la carte d'acquisition, un câble a dû être modifié.
+Il s'agit d'un cable Jack 6.35 Stéréo $\rightarrow$ Double banane (masse distribuée).
+
+Ce câble est stocké avec la tête artificielle.
 
 Les mesures sont faites avec une carte d'acquisition NI-9234 (pour pouvoir couper l'alimentation ICP en cas de mesures à
 la tête artificielle).
 
-Trois prises de réponses impulsionnelles sont mesurées :
+Trois mesures de réponses impulsionnelles sont faites  :
 
 \begin{itemize}
     \item deux avec un micro (RI monaurale)
@@ -142,18 +151,18 @@ Trois prises de réponses impulsionnelles sont mesurées :
 
 Les spectres de ces réponses sont donnés en figures~\ref{spectre1} et~\ref{spectre2}.
 Il faut noter qu'avant le tracé des spectres, la valeur moyenne du signal lui est retranchée (pour éviter de "tasser" le
-spectre avec un offset trop important).
+spectre avec un \textit{offset} trop important).
 
 \begin{figure}[h]
     \vfill\begin{center}
-        \includegraphics[scale=0.6]{ris_monaurales.png}
+        \includegraphics[scale=0.4]{ris_monaurales.png}
     \end{center}\vfill
     \caption{\label{spectre1} Réponses fréquentielles correspondant aux réponses impulsionnelles monaurales mesurées}
 \end{figure}
 
 \begin{figure}[h]
     \vfill\begin{center}
-        \includegraphics[scale=0.6]{ri_binaurale.png}
+        \includegraphics[scale=0.4]{ri_binaurale.png}
     \end{center}\vfill
     \caption{\label{spectre2} Réponses fréquentielles correspondant à la réponse impulsionnelle binaurale mesurée. Les
     cannaux droit et gauche sont séparés.}
@@ -163,12 +172,12 @@ spectre avec un offset trop important).
 \section{Travail de la prochaine séance} % {{{
 
 Au cours de la prochaine séance, il faudra particulièrement mettre l'accent sur la convolution d'un signal anéchoïque
-avec les 3 RI mesurées. Ensuite, il s'agira de reconstituer des fichiers WAV et d'écouter et commenter le rendu.
+avec les trois RI mesurées. Ensuite, il s'agira de reconstituer des fichiers WAV et d'écouter et commenter le rendu.
 
 Pendant ce temps, il pourrait être bon de mesurer un signal anéchoïque (transmis par une chaine d'excitation limitée) en
-salle anéchoïque et d'essayer de le convoluer aussi avec les RI pour comparaison.
+salle anéchoïque et d'essayer de le convoluer aussi avec les RI pour comparaison (comme précisé plus tot).
 
-Enfin, un soin particulier sera apporté à la recherche d'un moyen objectif de comparaison entre les sons recréés
+Enfin, un soin particulier sera apporté à la recherche d'un moyen objectif de comparaison entre les sons re-créés
 mathématiquement et ceux captés après "convolution physique".
 
 % }}}
