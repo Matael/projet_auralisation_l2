@@ -1,0 +1,76 @@
+\documentclass[a4paper, 11pt]{report}
+
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+    \usepackage[french]{babel}
+	\usepackage[top=3cm,left=2cm,right=2cm,bottom=2cm]{geometry}
+	\usepackage{graphicx}
+
+	\title{Comparaison de différents facteurs sur le procédé d'auralisation}
+	\author{Thomas \textsc{Lechat} -- Xin \textsc{Wang} -- Mathieu \textsc{Gaborit} \hfill Encadrant : Christophe
+    \textsc{Ayrault}}
+	\date{L2 SPI
+    \vskip 1cm
+    Année universitaire 2012-2013}
+
+	\makeatletter
+	\def\thetitle{\@title}
+	\def\theauthor{\@author}
+	\def\thedate{\@date}
+	\makeatother
+
+
+    \setcounter{secnumdepth}{5}
+    \renewcommand{\thesection}{\Roman{section}.}
+    \renewcommand{\thesubsection}{\Roman{section}.\Alph{subsection}.}
+    \renewcommand{\thesubsubsection}{\arabic{subsubsection})}
+\begin{document}
+
+% page de titre [PAS TOUCHE] {{{
+\begin{titlepage}
+
+% logo Univ
+\begin{flushright}
+\includegraphics[width=4cm]{logo.png}
+\end{flushright}
+
+
+\vskip 6cm
+
+% Titre
+\begin{flushleft}
+\huge{\textbf{Projet auralisation}}
+\vskip .5cm
+\hrule height 3pt
+\vskip .5cm
+\huge{\textbf{\thetitle}}
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+\Large{
+\thedate
+}
+\end{center}
+
+\vskip 1cm
+\hrule height .5pt
+\vskip 1cm
+
+\begin{flushleft}
+\theauthor
+\end{flushleft}
+
+\end{titlepage}
+% }}}
+% sommaire [PAS TOUCHE] {{{
+\renewcommand{\contentsname}{Sommaire
+\vskip .5cm
+\hrule height .5pt}
+\tableofcontents
+\newpage
+% }}}
+
+
+\end{document}
