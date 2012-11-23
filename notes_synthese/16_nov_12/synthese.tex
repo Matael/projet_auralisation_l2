@@ -6,8 +6,8 @@
 \usepackage[top=3cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
 
 \renewcommand{\contentsname}{Sommaire}
-\renewcommand{\thesection}{\Roman{section} - }
-\renewcommand{\thesubsection}{\Alph{subsection}) }
+\renewcommand{\thesection}{\Roman{section}-}
+\renewcommand{\thesubsection}{\Alph{subsection})}
 
 
 \title{License SPI -- Projet Auralisation}
@@ -16,7 +16,6 @@
 \begin{document} \maketitle
 
 \tableofcontents
-\newpage
 
 \section{Discussion autour des approximations} % {{{
 
@@ -162,14 +161,28 @@ spectre avec un offset trop important).
 % }}}
 \section{Travail de la prochaine séance} % {{{
 
+\begin{figure}
+    \hfill
+    \begin{center}
+        \includegraphics[width=6cm]{bidouille.jpg}
+        \caption{\label{bidouille}Le fameux bricolage utilisé pour relier le préampli de la tête artificielle à la carte
+        d'acquisition}
+    \end{center}
+    \hfill
+\end{figure}
 Au cours de la prochaine séance, il faudra particulièrement mettre l'accent sur la convolution d'un signal anéchoïque
 avec les 3 RI mesurées. Ensuite, il s'agira de reconstituer des fichiers WAV et d'écouter et commenter le rendu.
 
 Pendant ce temps, il pourrait être bon de mesurer un signal anéchoïque (transmis par une chaine d'excitation limitée) en
 salle anéchoïque et d'essayer de le convoluer aussi avec les RI pour comparaison.
 
+Lors des mesures de la semaine dernières, nous avions utilisé une tête artificielle et un câble laissant un peu à
+désirer pour relier le préampli de la tête à la carte d'acquisition (voir figure~\ref{bidouille}). Pour la semaine
+prochaine, un câble a été fabriqué par l'atelier (merci à eux !) pour améliorer la chose.
+
 Enfin, un soin particulier sera apporté à la recherche d'un moyen objectif de comparaison entre les sons recréés
 mathématiquement et ceux captés après "convolution physique".
+
 
 % }}}
 \end{document}
