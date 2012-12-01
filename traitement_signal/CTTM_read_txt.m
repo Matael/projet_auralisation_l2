@@ -14,8 +14,8 @@ function [data]=CTTM_read_txt(filename,cols)
 %
 
 if cols<1
-	disp("cols must greater than 1 or equal");
-endif
+	disp('cols must greater than 1 or equal');
+end
 
 fid = fopen(filename);
 % on vire la ligne d'en-tête
@@ -27,10 +27,10 @@ i = 0;
 while i<cols
 	format = [format '\t%e'];
 	i = i+1;
-endwhile
+end
 
 data = fscanf(fid, format, [cols inf]);
 
 data = data';
 
-endfunction
+end
