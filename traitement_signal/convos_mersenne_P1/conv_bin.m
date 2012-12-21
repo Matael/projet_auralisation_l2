@@ -7,16 +7,14 @@ fichier = '/Donnees_temporelles.txt';
 ratio = .07;
 
 % quelques sons
-fichiers = {'mesure_claquement_mains_binaurale_mersenneP1';
-'mesure_cle_binaurale_mersenneP1';
-'mesure_musique_binaurale_mersenneP1'};
+fichiers = {'mesure_claquement_mains_binaurale_mersenneP1','handclaps_51k2';
+'mesure_cle_binaurale_mersenneP1','cles_51k2';
+'mesure_musique_binaurale_mersenneP1','chanson_51k2'};
 
-sons = {'handclaps_51k2';
-'cles_51k2';
-'chanson_51k2'};
 RI = 'mesure_RI_binaurale_mersenne_recepteurP1';
 
 % charger la RI
+disp('Fetching BRIR');
 ris = CTTM_read_txt([dossier RI fichier], 3);
 ri_gauche = ris(:,3)*ratio;
 ri_droite = ris(:,2)*ratio;
@@ -25,12 +23,13 @@ ri_droite = ris(:,2)*ratio;
 % -> convo
 % -> reference
 
-len = length(sons);
+len = length(fichiers);
 count = 1;
 
+disp(['File to process : ' num2str(len)]);
 while count<=len
-	son = char(sons(count));
-	fichier_courant = char(fichiers(count));
+	son = char(fichiers(count,2));
+	fichier_courant = char(fichiers(count,1));
 	disp(['Processing: ' son]);
 	% on recrée la référence
 	disp('--> Referece sound reconstruction');
