@@ -19,6 +19,8 @@
 	\def\thedate{\@date}
 	\makeatother
 
+    % interligne
+    \renewcommand{\baselinestretch}{1.1}
 
     \setcounter{secnumdepth}{5}
     \renewcommand{\thesection}{\Roman{section}.}
@@ -71,6 +73,62 @@
 \tableofcontents
 \newpage
 % }}}
+% Intro {{{1
 
+Pour le public, l'acoustique est un domaine s'appliquant principalement aux salles.
+Bien que la majorité pense à l'amélioration des performances acoustiques, l'étude réelle autour des salles va
+beaucoup plus loin.
+La reproduction des conditions d'écoute dans une salle donnée (réelle ou virtuelle) est un sujet important. Il s'agit d'une
+application à la frontière entre acoustique des salles et réalité virtuelle, le tout teinté de psychoacoustique. Dans les
+domaines s'approchant, on citera notament la reproduction de transducteurs (en captation ou reproduction).
 
+\medskip
+
+Le fait de recréer la modification d'un son par une salle à partir de mesures ou de calculs s'appelle
+l'\emph{auralisation}. L'auralisation est d'ailleurs définie ainsi dans l'ouvrage de Michael
+Vorländer~\cit{vorlander2008} :
+
+\begin{quote}
+L'auralisation est une technique visant à créer des fichiers sonores écoutables depuis des données (simulées, mesurées
+ou synthétisées) numériques.
+\end{quote}
+
+\medskip
+
+Afin de mettre en œuvre une comparaison de l'influence de différents facteurs sur la qualité d'une auralisation, une
+série de mesures est effectuée (réponses impulsionnelles -- RI --  binaurales et monaurales, sons en salles cibles,
+etc...).  Ensuite, les signaux mesurés sont convolués avec les RI et le résultat est écouté et qualifié. Finalement, la
+comparaison même prend forme et les résultats sont consignés et interprétés : il s'agit alors de comparer le résultat
+obtenu par convolution «\emph{mathématique}» avec le rendu réel (convolution «\emph{physique}» en rejouant le son en
+salle cible) et ce en variant divers paramètres (RI monaurale/binaurale, mode de convolution, etc...).
+
+% }}}
+\section{Etat de l'art}
+
+Les premiers essais se rapportant à l'auralisation ont été faits par Spandöck et al. en 1929.
+Ces travaux ont été repris et améliorés après l'apparition des ordinateurs ; en utilisant cette nouvelle puissance de
+calcul et, vers la fin des années 1960, le premier logiciel de simulation d'acoustique des salles fut développé
+(Krokstad).
+
+Le mot «auralisatio» lui-même fut utilisé pour la première fois par Kleiner et al. dans l'article
+\underline{Auralization -- An Overview}~\cite{kleiner1993}.
+
+Dans la sommes des techniques utilisées pour aboutir à la reproduction des conditions acoustiques d'une salle, deux
+reviennent principalement :
+
+\begin{itemize}
+    \item utilsation de \item{ray-tracing} ;
+    \item utilisation de systèmes source-image.
+\end{itemize}
+
+Les deux sont connues depuis longtemps et éprouvés, elles peuvent parallèlement être améliorer de la prise en compte de
+divers facteurs :
+
+\begin{itemize}
+    \item diffusion (aléatoire ou déterminée)
+    \item absorp
+\end{itemize}
+
+\bibliographystyle{alpha}
+\bibliography{biblio}
 \end{document}
