@@ -32,16 +32,19 @@ plot(freqs, 20*log10(spectre1));
 title('|FFT(mono1)|');
 xlabel('Frequence en Hz');
 ylabel('Amplitude en dB');
+xlim([0 Fe/2]);
 
 subplot(3,1,2);
 plot(freqs, 20*log10(spectre2));
 title('|FFT(mono2)|');
 xlabel('Frequence en Hz');
 ylabel('Amplitude en dB');
+xlim([0 Fe/2]);
 
 subplot(3,1,3);
-plot(freqs, sqrt((20*log10(spectre1))^2 - (20*log10(spectre2))^2));
+plot(freqs, sqrt(log10(spectre1).^2 - (spectre2).^2));
 title('Comparaison');
 xlabel('Frequence en Hz');
+xlim([0 Fe/2]);
 
-print('compare_mono1_2.png', '-dpng');
+print('comp_mono_1_2.png', '-dpng');

@@ -14,7 +14,7 @@ stop = 357500;
 target_start = 278700;
 target_stop = 401000;
 
-file = load([dossier 'seance2_reverb_tete1/' fichier]);
+file = CTTM_textread([dossier 'seance2_reverb_tete1/' fichier], 3);
 ri_gauche = file(start:stop,2);
 ri_gauche = ri_gauche - mean(ri_gauche);
 ri_gauche = ri_gauche*0.5;
@@ -24,6 +24,7 @@ ri_droite = ri_droite - mean(ri_droite);
 ri_droite = ri_droite*0.5;
 
 target_sound = wavread('handclaps_44k1.wav');
+target_sound = target_sound(target_start:target_stop);
 
 % convolution
 result_g = conv(ri_gauche,target_sound);
