@@ -1,0 +1,90 @@
+\section{Essais Préliminaires}
+
+Avant de chercher à comparer différentes techniques d'auralisation, une étude des moyens de comparaison et divers
+essais préliminaires sont menés.
+
+% TODO
+%
+% - comparaison entre RI recoupés et RI standard
+% - nécessité du calage temporel
+% - moyens de comparaison fréquentielle
+
+\subsection{Fenêtrage temporel des réponses impulsionnelles} % {{{1
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=15cm]{ri_non_recoupee.png}}
+\caption{\label{ri_non_recoupee}Une des RI mesurées avant le fenêtrage (ici, le canal gauche d'une RI binaurale en salle
+Mersenne). La figure a) montre la RI avant fenêtrage et la figure b) la même RI après fenêtrage}.
+\end{figure}
+
+Lors de la prise de réponses impulsionnelles, afin de ne pas dégrader l'information en «coupant» les réflexions les plus
+tardives, les mesures sont faites sur des temps assez longs (voir figure~\ref{ri_non_recoupee});
+
+De telles mesures posent plusieurs soucis, d'abord en terme de stockage mais aussi en terme de temps de calcul.
+
+Les mesures de RI sont donc fenêtrées pour éliminer les blancs avant et après du traitement. Afin de conserver les
+fichiers originaux et d'éviter l'apparition d'incohérences dans les fichiers de mesures, les fenêtrages sont codés en
+dur dans les scripts de traitement et les fichiers de mesures sont laissés tels quels.
+
+Il semble intéressant enfin de regarder quelle influence a le fenêtrage d'une RI sur le processus d'auralisation.
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=15cm]{spks_ri_recoupe_superimposed.png}}
+\caption{\label{spectres_recoupage}Les spectres des sons resultant de la convolution avec une RI fenêtrée (en rouge) et
+non fenêtrée (en bleu). Même si les écarts sont faibles, ils existent.}
+\end{figure}
+
+Après deux tests, il apparaît que le fenêtrage des RI apporte un gain non négligeable en terme de temps de
+calculs\footnote{une partie des calculs étant faits sur une machine peu puissante, cette composante est importante}.
+Toutefois, comme le montre la figure~\ref{spectres_recoupage}, on remarque que les spectres de signaux convolués avec
+une RI fenêtrée d'une part et non fenêtrés de l'autre ne sont pas identiques. Il faut malgré tout préciser que
+perceptivement l'utilisation d'une RI fenêtrée rend le son plus net et moins bruité (plus réaliste en fait). Cela vient
+probablement de l'élimination par fenêtrage du bruit de fond avant et après le son utile.
+
+\subsection{Réduction du temps de calcul : procédé de convolution} % {{{1
+
+La convolution est une opération mathématique très gourmande en temps processeur et en mémoire. Même si elle peut être
+assez facilement parallèlisée\footnote{Soit avec des processeurs mathématiques dédiés soit avec des processeurs
+hautement parallèles type GPU (processeurs de carte graphique)}, ces deux solutions étaient hors de portée ici.
+
+La convolution joue dans le projet un rôle central puisqu'elle est l'outil permettant de passer d'une RI et d'un son
+anéchoïque à un résultat sonore représentant la façon dont l'espace lié à la RI aurait modifié le son (voir
+figure~\ref{lien_convo_projet}).
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=12cm]{lien_convo_projet.png}}
+\caption{\label{lien_convo_projet}Lien entre le projet et la convolution. En haut, la convolution «physique» (lorsque
+qu'un signal $s(t)$ est émis dans la salle (de réponse impulsionnelle $H(t)$. Au milieu la convolution mathématique au
+sens strict (\textit{via} l'opération consacrée). En bas, la convolution mathématique en utilisant la propriété de
+symétrie entre convolution temporelle et multiplication fréquentielle. La chaine du bas est plus longue mais les calculs
+sont plus rapides que pour celle du milieu.}
+\end{figure}
+
+La tranformée de Fourier (TF) est une opération qui n'est pas strictement réversible et qui entraine une légère perte de
+données :
+
+$$TF^{-1}\left\{TF\left\{s(t)\right\}\right\} \approx s(t)$$
+
+La fonction \texttt{conv()} proposée par \matlab et GNU/Octave réalise une convolution mathématique stricte (au sens
+discret). Celle ci est toutefois très lente sur des machines peu puissantes.
+
+La fonction \texttt{fftconv()} proposée par GNU/Octave est par contre nettement plus rapide, elle utilise le mécanisme
+présenté en bas de la figure~\ref{lien_convo_projet}. Cette fonction n'est toutefois pas proposée nativement dans
+\matlab. Elle est réimplémentée pour le projet en s'appuyant sur un script trouvé sur le site utilisateurs du
+logiciel\footnote{\url{http://www.mathworks.com/matlabcentral/fileexchange/5703-fftconv/content/fftconv.m}} :
+
+\begin{Verbatim}[samepage=true]
+function c = fftconv(a,b,force);
+
+na = length(a);
+nb = length(b);
+
+n=na+nb;
+
+A = fft(a,n);
+B = fft(b,n);
+
+c = ifft(A.*B,n);
+c = real(c(1:na+nb-1));
+\end{Verbatim}
+
