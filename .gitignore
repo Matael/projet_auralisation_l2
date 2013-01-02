@@ -4,3 +4,4 @@
 *.bbl
 *.blg
 octave-core
+texput.log
