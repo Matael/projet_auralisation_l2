@@ -1,0 +1,14 @@
+Fetching BRIR
+Processing: chanson_51k2
+--> Reference sound reconstruction
+--> Convolution RI*Sound
+--> Synchronising sounds
++ looking for signal energy per band of 100 points
+	(will just look at the first quarter of the signal)
++ Generating energy report plot
++ Computing shifting to apply
+	Chosen start for convoluted sound : 49500
+	Chosen start for reference sound : 49500
+	Chosen length for both sounds : 8.96e+05
++ Generating temporaly synchronized signals plot
+

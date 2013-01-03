@@ -52,7 +52,7 @@ anéchoïque à un résultat sonore représentant la façon dont l'espace lié �
 figure~\ref{lien_convo_projet}).
 
 \begin{figure}[h!]
-\centering{\includegraphics[width=12cm]{lien_convo_projet.png}}
+\centering{\includegraphics[width=9cm]{lien_convo_projet.png}}
 \caption{\label{lien_convo_projet}Lien entre le projet et la convolution. En haut, la convolution «physique» (lorsque
 qu'un signal $s(t)$ est émis dans la salle (de réponse impulsionnelle $H(t)$. Au milieu la convolution mathématique au
 sens strict (\textit{via} l'opération consacrée). En bas, la convolution mathématique en utilisant la propriété de
@@ -74,7 +74,7 @@ présenté en bas de la figure~\ref{lien_convo_projet}. Cette fonction n'est tou
 logiciel\footnote{\url{http://www.mathworks.com/matlabcentral/fileexchange/5703-fftconv/content/fftconv.m}} :
 
 \begin{Verbatim}[samepage=true]
-function c = fftconv(a,b,force);
+function c = fftconv(a,b);
 
 na = length(a);
 nb = length(b);
@@ -87,6 +87,27 @@ B = fft(b,n);
 c = ifft(A.*B,n);
 c = real(c(1:na+nb-1));
 \end{Verbatim}
+
+Il semble intéressant de s'intéresser (au moins un peu) à l'erreur induite par l'utilisation de \texttt{fftconv()}
+plutot que \texttt{conv}. La même convolution est réalisée avec chacune des fonctions, puis une simple distance
+géométrique est utilisée pour calculer la distance existant entre les deux signaux : 
+
+$$ d(t) = \sqrt{\left|\left[s_1(t)\right]^2 - \left[s_2(t)\right]^2\right|}$$
+
+où $d(t)$ est la distance entre les signaux $s_1$ et $s_2$ au point d'abscisse $t$.
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=12cm]{comp_conv_fftconv.png}}
+\caption{\label{comp_conv_fftconv}Comparaison entre les résultats d'une même convolution avec \texttt{conv()} d'une part
+et \texttt{fftconv()} d'autre part. On remarque notamment que sur le graphe du bas (représentant la distance géométrique
+entre les 2 graphes au dessus), l'axe des ordonnées est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.}
+\end{figure}
+
+Le graphe obtenu est présenté en figure~\ref{comp_conv_fftconv}, il faut notamment noter que l'axe des ordonnées sur
+le graphe des distances est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.
+
+Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en temps de calcul
+réalisé, cette fonction semble largement plus avantageuse que \texttt{conv()}.
 
 \subsection{Utlisation d'un ballon de baudruche} % {{{1
 
