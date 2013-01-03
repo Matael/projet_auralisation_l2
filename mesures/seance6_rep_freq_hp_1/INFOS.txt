@@ -1,0 +1,2 @@
+Voix 1 : micro
+Voix 2 : générateur

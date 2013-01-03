@@ -1,4 +1,7 @@
 *.aux
 *.log
 *.toc
+*.bbl
+*.blg
 octave-core
+texput.log

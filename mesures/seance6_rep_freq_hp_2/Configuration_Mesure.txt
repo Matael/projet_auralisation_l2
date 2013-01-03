@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="Projet_LWG"
+Nom de la mesure="seance6_rep_freq_hp_2"
+Date="14/12/2012"
+Opérateur="ep"
+Commentaires=""
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=5.000000

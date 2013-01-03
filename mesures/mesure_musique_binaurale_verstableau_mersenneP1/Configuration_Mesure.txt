@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="seance_14_12_12"
+Nom de la mesure="mesure_musique_binaurale_verstableau_mersenneP2"
+Date="14/12/2012"
+Opérateur="ep"
+Commentaires="la tete est dans le sens inverse de la fleche"
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=10.000000

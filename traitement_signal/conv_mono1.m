@@ -9,7 +9,7 @@ Ntfd = 2^14;
 Fe = 44100;
 
 start = 273250;
-stop = 341334;
+stop = 378620;
 
 target_start = 278700;
 target_stop = 401000;

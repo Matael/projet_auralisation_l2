@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="seance_14_12_12"
+Nom de la mesure="mesure_RI_binaurale_mersenne_recepteurP1_position_inverse"
+Date="14/12/2012"
+Opérateur="ep"
+Commentaires="la tete regarde dans le sens inverse de la fleche sur le schema. (face au mur ou ce trouve les vitres)"
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=7.000000

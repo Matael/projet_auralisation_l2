@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="seance_14_12_12"
+Nom de la mesure="mesure_RI_binaurale_mersenne_recepteurP2_poubelle"
+Date="14/12/2012"
+Opérateur="ep"
+Commentaires=""
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=7.000000

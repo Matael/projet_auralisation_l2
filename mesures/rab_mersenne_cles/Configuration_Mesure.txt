@@ -1,0 +1,11 @@
+[INFOS GENERALES]
+Nom du Projet="Projet_auralisation"
+Nom de la mesure="cles"
+Date="21/12/2012"
+Opérateur="ep"
+Commentaires=""
+
+[TYPE MESURE]
+Type="Temporel"
+Fe (Hz)=44100.000000
+Durée (s)=10.000000

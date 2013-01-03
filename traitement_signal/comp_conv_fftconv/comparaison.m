@@ -27,16 +27,18 @@ result_conv = conv(ri,target_sound);
 result_fftconv = fftconv(ri,target_sound);
 
 % Comparaison
-comp = sqrt(result_conv.^2 - result_fftconv.^2);
+comp = sqrt(abs(result_conv.^2 - result_fftconv.^2));
 
 subplot(3,1,1);
 plot(result_conv);
-plot('Conv');
+title('Conv');
 
 subplot(3,1,2);
 plot(result_fftconv);
-plot('FFT Conv');
+title('FFT Conv');
 
 subplot(3,1,3);
 plot(comp);
 title('Comparaison');
+
+print('compare.png', '-dpng');
