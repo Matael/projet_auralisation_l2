@@ -1,7 +1,21 @@
 \begin{thebibliography}{KDS93}
 
+\bibitem[Bru10]{Bru10}
+J.~Brulez.
+\newblock Auralisation spatialis{\'e}e de l'effet de salle: synth{\`e}se temps
+  r{\'e}el vs synth{\`e}se temps diff{\'e}r{\'e}.
+\newblock Technical report, Laboratoire d'Informatique pour la M{\'e}canique et
+  les Sciences de l'Ing{\'e}nieur, 2010.
+
 \bibitem[KDS93]{Kle93}
-Mendel Kleiner, Bengt-Inge Dalenbäck, and Peter Svensson.
-\newblock Auralization an overview, 1993.
+M.~Kleiner, B.~Dalenback, and P.~Svensson.
+\newblock Auralization: an overview.
+\newblock {\em AES Journal}, 41, 1993.
+
+\bibitem[Vor08]{Vor08}
+M.~Vorl{\"a}nder.
+\newblock {\em Auralization: Fundamentals of Acoustics, Modelling, Simulation,
+  Algorithms and Acoustic Virtual Reality}.
+\newblock RWTH edition. Springer London, Limited, 2008.
 
 \end{thebibliography}

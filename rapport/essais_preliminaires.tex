@@ -1,4 +1,4 @@
-\section{Essais Préliminaires}
+\chapter{Essais et Informations Préliminaires}
 
 Avant de chercher à comparer différentes techniques d'auralisation, une étude des moyens de comparaison et divers
 essais préliminaires sont menés.
@@ -9,7 +9,7 @@ essais préliminaires sont menés.
 % - nécessité du calage temporel
 % - moyens de comparaison fréquentielle
 
-\subsection{Fenêtrage temporel des réponses impulsionnelles} % {{{1
+\section{Fenêtrage temporel des réponses impulsionnelles} % {{{1
 
 \begin{figure}[h!]
 \centering{\includegraphics[width=15cm]{ri_non_recoupee.png}}
@@ -41,7 +41,7 @@ une RI fenêtrée d'une part et non fenêtrés de l'autre ne sont pas identiques
 perceptivement l'utilisation d'une RI fenêtrée rend le son plus net et moins bruité (plus réaliste en fait). Cela vient
 probablement de l'élimination par fenêtrage du bruit de fond avant et après le son utile.
 
-\subsection{Réduction du temps de calcul : procédé de convolution} % {{{1
+\section{Réduction du temps de calcul : procédé de convolution} % {{{1
 
 La convolution est une opération mathématique très gourmande en temps processeur et en mémoire. Même si elle peut être
 assez facilement parallèlisée\footnote{Soit avec des processeurs mathématiques dédiés soit avec des processeurs
@@ -109,7 +109,7 @@ le graphe des distances est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.
 Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en temps de calcul
 réalisé, cette fonction semble largement plus avantageuse que \texttt{conv()}.
 
-\subsection{Utlisation d'un ballon de baudruche} % {{{1
+\section{Utlisation d'un ballon de baudruche} % {{{1
 
 La réponse impulsionnelle d'une salle doit caractériser une salle et particulièrement les différentes réflexion induites
 par sa géométrie.
@@ -129,7 +129,7 @@ spectre est visible en figure~\ref{spk_ballon_anecho}.
 
 \begin{figure}[h!]
 \centering{\includegraphics[width=15cm]{rep_ballon_anecho.png}}
-\caption{\label{spk_ballon_anecho}}Enregistrement temporel de l'éclatement d'un ballon de baudruche en salle
+\caption{\label{spk_ballon_anecho}Enregistrement temporel de l'éclatement d'un ballon de baudruche en salle
 semi-anéchoïque (noter la réflexions visible en temporel) et spectre du signal.}
 \end{figure}
 
@@ -137,3 +137,59 @@ La réponse en fréquences n'est donc clairement pas plate. On note une décrois
 minima en hautes fréquences ainsi qu'un creux dans la bande 10 - 200Hz.
 
 Une tentative de compensation des imperfections de la chaine d'excitation est décrite dans la suite.
+
+
+\section{Type de sons pour les tests} % {{{1
+
+Le choix des sons de test est un choix assez important dans le sens où il faut que ceux si soient suffisament génériques
+pour ne pas biaiser les résultats mais assez particuliers pour que les altérations produites par la salle cible soient
+audibles (ou visibles).
+
+D'après Kleiner et coll., la parole ou la musique sont de bons sons de test~\cite{Kle93}. le choix des sons de test
+s'est donc porté sur :
+
+\begin{itemize}
+    \item une suite de claquements de mains (pour la composante sourde et impulsionnelle) ;
+    \item des tintements de clés ;
+    \item les 30 premières secondes du morceau \textit{Mon Imagination} de Pierpoljak.
+\end{itemize}
+
+Les deux premiers sons proviennent du site de partage de sons
+\textit{Freesound}\footnote{\url{http://www.freesound.org/}, merci à \textit{Anton}
+(\url{http://www.freesound.org/people/Anton/}) d'avoir posté ces sons là.} ; ils ont été enregistrés en salle anéchoïque
+et échantilonnés à 96 kHz.
+
+La chanson quant à elle provient d'un album studio et l'enregistrement est donc teinté de la signature de la salle
+d'enregistrement.
+
+\section{Restitution et écoute post-auralisation} % {{{1
+
+Le succès d'une auralisation repose grandement sur les conditions de l'écoute finale. En effet, il faut que le son à
+écouter soit le moins altéré possible par les conditions d'écoute. Deux moyens d'écoute existent (notamment dans le cas
+d'écoute de résultats binauraux) : au casque ou \textit{via} des HP et un système de restitution. 
+
+Si la première méthode ne pose pour ainsi dire aucun problème, la seconde est nettement plus complexe.
+Comme il s'agit d'une auralisation binaurale, les deux canaux (droite et gauche) sont différenciés et il est important
+que chaque oreille ne capte que ce qui lui est destiné.
+
+Il y a donc des règles à respecter au niveau du système de restitution avec notament un système
+anti-diaphonie~\cite{Kle93}. De tels systèmes sont parfois difficiles à mettre en place notamment dans salles assez
+grandes, ceci étant dû au second problème soulevé par une restitution hors casque : il faut que l'empreinte acoustique
+soit faible pour ne pas perturber le son émis~\cite{Bru10}.
+
+\section{Salles auralisées} % {{{1
+
+Deux salles ont été utilisées au cours du projet :
+
+\begin{itemize}
+    \item la salle de TP Mersenne (voir figure~\ref{plan_mersenne}) ;
+    \item la salle réverbérante (à coté de la salle mersenne).
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering{\includegraphics[width=10cm]{plan_mersenne.png}}
+    \caption{\label{plan_mersenne}Plan de la salle Mersenne. La source a toujours été placée au point noté
+    \textbf{Source}. Le micro (pour les prises monaurales) et la tête on toujours étés placés en \textbf{P1} ou
+    \textbf{P2}. L'orientation par dédfaut de la tête est vers le couloir pour \textbf{P1} et vers la source pour
+    \textbf{P2}. La source est toujours orientée vers le récepteur.}
+\end{figure}
