@@ -9,7 +9,7 @@ ref = wavread(ref_filename);
 
 
 start_conv = 177125;
-start_ref = 69490;
+start_ref = 69480;
 offset = 000;
 forward = 500;
 

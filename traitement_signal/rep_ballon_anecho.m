@@ -19,6 +19,7 @@ temps = (0:(len-1))*(1/(Fe));
 plot(temps,normalize(file));
 xlim([0 0.4]);
 grid on;
+xlabel('Temps en secondes');
 title("Temporel");
 
 % tracé fréquentiel

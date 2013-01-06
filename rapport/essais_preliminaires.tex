@@ -110,36 +110,6 @@ le graphe des distances est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.
 Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en temps de calcul
 réalisé, cette fonction semble largement plus avantageuse que \texttt{conv()}.
 
-\section{Utlisation d'un ballon de baudruche} % {{{1
-
-La réponse impulsionnelle d'une salle doit caractériser une salle et particulièrement les différentes réflexion induites
-par sa géométrie.
-
-Afin d'avoir une mesure la plus fidèle possible à la réalité du terrain, il faut que la source utilisée pour générer
-l'impulsion (ou le bruit permettant la prise d'une réponse en fréquences) soit la plus omni-directionnelle possible.
-
-L'utilisation d'un ballon de baudruche posait le souci que sa directivité est inconnue. Avec plus de temps, un
-caractérisation de la directivité du ballon aurait pu être intéressante.
-
-Une telle étude semble être en cours ou avoir été réalisée au LIMSI~\cite{Bru10}, malheureusement l'étude n'est pas
-disponible à la consultation : pour ce projet, le ballon de baudruche sera donc considéré omnidirectionnel.
-
-Le second incovénient soulevé par l'utilisation d'un ballon de baudruche est que la bande passante du son généré par
-son éclatement n'est pas connu. Un éclatement de ballon de baudruche est donc mesuré en salle semi-anéchoïque (le
-spectre est visible en figure~\ref{spk_ballon_anecho}.
-
-\begin{figure}[h!]
-\centering{\includegraphics[width=15cm]{rep_ballon_anecho.png}}
-\caption{\label{spk_ballon_anecho}Enregistrement temporel de l'éclatement d'un ballon de baudruche en salle
-semi-anéchoïque (noter la réflexions visible en temporel) et spectre du signal.}
-\end{figure}
-
-La réponse en fréquences n'est donc clairement pas plate. On note une décroissance de -20dB par décade et une série de
-minima en hautes fréquences ainsi qu'un creux dans la bande 10 - 200Hz.
-
-Une tentative de compensation des imperfections de la chaine d'excitation est décrite dans la suite.
-
-
 \section{Type de sons pour les tests} % {{{1
 
 Le choix des sons de test est un choix assez important dans le sens où il faut que ceux si soient suffisament génériques

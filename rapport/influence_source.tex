@@ -1,0 +1,105 @@
+\chapter{Influence de la source}
+
+Le sujet qui n'a pas été discuté au cours de se rapport est l'influence de la source dans le processus.
+
+Dans le processus d'auralisation, la prise de réponse impulsionnelle ou le calcul de celle ci est un passage important.
+
+En réalité, la qualité du signal final dépend grandement de la qualité de la RI.
+
+\section{Qualité d'une RI} % {{{1
+
+L'estimation de la qualité d'une RI passe notamment par 3 facteurs :
+
+\begin{itemize}
+	\item la netteté de l'attaque
+	\item un bon rapport signal/bruit (RSB)
+	\item la qualité de l'impulsion
+\end{itemize}
+
+La netteté de l'attaque et la qualité de l'impulsion sont liées en fait, mais une impulsion bien générée sera toujours
+tributaire de la qualité de la source, en cela, cette dernière est clairement le facteur limitant.
+
+Un bon RSB est parfois assez difficile à obtenir (milieu bruyant, parasites, etc...).
+
+\subsection{Amélioration de la qualité de la RI} % {{{2
+
+Plusieurs techniques peuvent permettre d'améliorer les différents paramètres d'une RI. On peut d'ailleurs regrouper ces
+techniques en deux ensembles : celles agissant sur le procédé de mesure lui-même et celles agissant \textit{a
+posteriori}. 
+
+La second classe comporte de nombreuses techniques de traitement du signal et de réduction du bruit :
+
+\begin{itemize}
+    \item déconvolution de signaux
+    \item filtrage simple
+    \item filtrage Wiener
+    \item equalisation (lors de la restitution)
+\end{itemize}
+
+Pour ce qui est des techniques interférant dans le procédé de mesure, on peut notamment citer la prise de réponses
+fréquentielles ou l'utilisation de signaux MLS et de systèmes spécialisé (système CLIO\textsuperscript{\textsc{TM}} par
+exemple).
+
+La prise de réponses fréquentielles permet d'utiliser des enceintes avec de multiples hauts parleurs, même si ceux ci
+n'ont pas des temps de réponses comparables. En effet, il s'agit d'émettre un bruit le plus large bande possible et de
+calculer la fonction de tranfert dans le domaine fréquentiel :
+
+$$H(F) = \frac{S(F)}{E(F)}$$
+
+où $H(F)$ est la fonction de transfert en fréquentiel, $E(F)$ le signal excitateur et $S(F)$ le signal mesuré dans la
+salle.
+
+On peut ensuite repasser dans le domaine temporel pour récupérer une réponse impulsionnelle en applicant une transformée
+de Fourier inverse sur $H(F)$.
+
+Les deux avantages de l'utilisation de réponses fréquentielles c'est qu'elle sont moyennables (ce qui permet de réduire
+les erreurs) et qu'il est possible de les mesurer à fort niveau, améliorant ainsi le RSB. Il faut toutefois faire
+attention à ce que toutes les fréquences soient excitée de manière semblable (là encore, les transducteurs sont
+limitant).
+
+La deuxième possibilité, impliquant des systèmes spécialisés, permet de mesurer des RI de bonne qualité même dans des
+environnements bruyants (relativement). C'est un avantage considérable de l'utilisation de signaux MLS (\textit{Maximum
+Length Sequence}). Le système CLIO\textsuperscript{\textsc{TM}} permet ce genre de choses mais comme tout système
+spécialisé, il demande un certain temps de prise en mains. Il n'a pas été utilisé au cours de ce projet.
+
+\section{Influence du ballon de baudruche} % {{{1
+
+
+
+La réponse impulsionnelle d'une salle doit caractériser une salle et particulièrement les différentes réflexion induites
+par sa géométrie.
+
+Afin d'avoir une mesure la plus fidèle possible à la réalité du terrain, il faut que la source utilisée pour générer
+l'impulsion (ou le bruit permettant la prise d'une réponse en fréquences) soit la plus omni-directionnelle possible.
+
+L'utilisation d'un ballon de baudruche posait le souci que sa directivité est inconnue. Avec plus de temps, un
+caractérisation de la directivité du ballon aurait pu être intéressante.
+
+Une telle étude semble être en cours ou avoir été réalisée au LIMSI~\cite{Bru10}, malheureusement l'étude n'est pas
+disponible à la consultation : pour ce projet, le ballon de baudruche sera donc considéré omnidirectionnel.
+
+Le second incovénient soulevé par l'utilisation d'un ballon de baudruche est que la bande passante du son généré par
+son éclatement n'est pas connue. Un éclatement de ballon de baudruche est donc mesuré en salle semi-anéchoïque (le
+spectre est visible en figure~\ref{spk_ballon_anecho}.
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=10cm]{rep_ballon_anecho.png}}
+\caption{\label{spk_ballon_anecho}Enregistrement temporel de l'éclatement d'un ballon de baudruche en salle
+semi-anéchoïque (noter la réflexions visibles en temporel) et spectre en dB du signal.}
+\end{figure}
+
+La réponse en fréquences n'est donc clairement pas plate. On note une décroissance de -20dB par décade et une série de
+minima en hautes fréquences ainsi qu'un creux dans la bande 10 - 200Hz.
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=10cm]{ballon_energie.png}}
+\caption{\label{ballon_energie}Spectre d'énergie d'un ballon de baudruche en salle semi-anéchoïque.}
+\end{figure}
+
+Pour mieux saisir la correspondance entre la bande passante du ballon et les résultats à l'écoute, on observe le graphe
+de la valeur absolue au carré du spectre. Cela nous donne le spectre d'énergie présenté en figure~\ref{ballon_energie}.
+
+On remarque que l'énergie se situe principalement dans les basses fréquences (en deçà de 100Hz) et que 2 pics viennent
+potentiellement perturber la RI entre 200 et 400Hz.
+
+% TODO : Déconvolution

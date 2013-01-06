@@ -13,12 +13,18 @@ fichiers = {'mesure_claquement_mains_binaurale_mersenneP1','handclaps_51k2';
 'mesure_musique_binaurale_mersenneP1','chanson_51k2'};
 
 RI = 'mesure_RI_binaurale_mersenne_recepteurP1';
+RI_mono = 'mesure_RI_monorale_mersenne_recepteurP1';
 
 % charger la RI
 disp('Fetching BRIR');
 ris = CTTM_read_txt([dossier RI fichier], 3);
 ri_gauche = ris(:,3)*ratio;
 ri_droite = ris(:,2)*ratio;
+
+disp('Fetching MRIR');
+ri_mono = CTTM_read_txt([dossier RI_mono fichier], 2);
+ri_mono = ri_mono(:,2)*ratio;
+
 
 % faire les calculs et la convo pour chaque son
 % -> convo
@@ -36,44 +42,48 @@ while count<=len
 	% on recrée la référence
 	disp('--> Referece sound reconstruction');
 	chans = CTTM_read_txt([dossier fichier_courant  fichier], 3);
-	result_ref = [normalize(chans(:,3))' ; normalize(chans(:,2))']';
+	result_ref = normalize([(chans(:,3))' ; (chans(:,2))']');
 	wavwrite(result_ref, 51200, ['ref_' son '.wav']);
 
 	% on convolue
 	disp('--> Convolution RI*Sound');
 	son_anecho = wavread(['../reserve_sons/' son '.wav']);
-	resultat_g = normalize(fftconv(ri_gauche, son_anecho(:,1)));
-	resultat_d = normalize(fftconv(ri_droite, son_anecho(:,1)));
-	result_conv = [resultat_g' ; resultat_d']';
+	resultat_g = (fftconv(ri_gauche, son_anecho(:,1)));
+	resultat_d = (fftconv(ri_droite, son_anecho(:,1)));
+	result_conv = normalize([resultat_g' ; resultat_d']');
 	wavwrite(result_conv, 51200, ['conv_' son '.wav']);
 
-	% calage temporel
-	disp('--> Synchronising sounds')
+	% on convolue
+	disp('--> Convolution RI_mono*Sound');
+	resultat_g = (fftconv(ri_mono, son_anecho(:,1)));
+	resultat_d = (fftconv(ri_mono, son_anecho(:,1)));
+	result_conv = normalize([resultat_g' ; resultat_d']');
+	wavwrite(result_conv, 51200, ['conv_mono_' son '.wav']);
 
 	% on génère un graphe en temporel
-	close all;
-	disp('--> generating time graph');
-	subplot(4,1,1);
-	plot(result_ref(:,1), 'b');
-	ylim([-1.5 1.5]);
-	grid on;
-	title(['[REF] Oreille Gauche -- ' son]);
-	subplot(4,1,2);
-	plot(result_conv(:,1), 'r');
-	ylim([-1.5 1.5]);
-	grid on;
-	title(['[CONV] Oreille Gauche -- ' son]);
-	subplot(4,1,3);
-	plot(result_ref(:,2), 'b');
-	ylim([-1.5 1.5]);
-	grid on;
-	title(['[REF] Oreille Droite -- ' son]);
-	subplot(4,1,4);
-	plot(result_conv(:,2), 'r');
-	ylim([-1.5 1.5]);
-	grid on;
-	title(['[CONV] Oreille Droite -- ' son]);
-	print(['temporel_' son '.png'],'-dpng');
+	% close all;
+	% disp('--> generating time graph');
+	% subplot(4,1,1);
+	% plot(result_ref(:,1), 'b');
+	% ylim([-1.5 1.5]);
+	% grid on;
+	% title(['[REF] Oreille Gauche -- ' son]);
+	% subplot(4,1,2);
+	% plot(result_conv(:,1), 'r');
+	% ylim([-1.5 1.5]);
+	% grid on;
+	% title(['[CONV] Oreille Gauche -- ' son]);
+	% subplot(4,1,3);
+	% plot(result_ref(:,2), 'b');
+	% ylim([-1.5 1.5]);
+	% grid on;
+	% title(['[REF] Oreille Droite -- ' son]);
+	% subplot(4,1,4);
+	% plot(result_conv(:,2), 'r');
+	% ylim([-1.5 1.5]);
+	% grid on;
+	% title(['[CONV] Oreille Droite -- ' son]);
+	% print(['temporel_' son '.png'],'-dpng');
 
 	count = count +1;
 end
