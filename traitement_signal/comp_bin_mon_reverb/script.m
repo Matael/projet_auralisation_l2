@@ -1,6 +1,8 @@
 clear all;
 close all;
 
+suffixe = '_droite';
+
 dossier = '../../mesures/';
 fichier = '/Donnees_temporelles.txt';
 
@@ -51,14 +53,14 @@ while count<=len
 	resultat_g = normalize(fftconv(ri_gauche, son_anecho(:,1)));
 	resultat_d = normalize(fftconv(ri_droite, son_anecho(:,1)));
 	result_conv = [resultat_g' ; resultat_d']';
-	wavwrite(result_conv, 51200, ['conv_' son '.wav']);
+	wavwrite(result_conv, 51200, ['conv_' son suffixe '.wav']);
 
 	% on convolue
 	disp('--> Convolution RI_mono*Sound');
 	resultat_g = normalize(fftconv(ri_mono, son_anecho(:,1)));
 	resultat_d = normalize(fftconv(ri_mono, son_anecho(:,1)));
 	result_conv = [resultat_g' ; resultat_d']';
-	wavwrite(result_conv, 51200, ['conv_mono_' son '.wav']);
+	wavwrite(result_conv, 51200, ['conv_mono_' son suffixe '.wav']);
 
 	% on génère un graphe en temporel
 	% close all;

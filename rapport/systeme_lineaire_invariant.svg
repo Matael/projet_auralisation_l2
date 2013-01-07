@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="150"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="systeme_lineaire_invariant.svg"
+   inkscape:export-filename="/home/matael/workspace/fac/projet_auralisation_l2/rapport/systeme_lineaire_invariant.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3959"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="408.90525"
+     inkscape:cy="114.28912"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4467"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="false"
+     inkscape:window-width="1022"
+     inkscape:window-height="598"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-902.36218)">
+    <g
+       id="g4467"
+       transform="translate(8.0645981,-0.76143)">
+      <g
+         id="g3105"
+         transform="translate(-9.9680882,0)">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 263.23351,1028.1236 219.61941,0 0,-99.99998 -219.61941,0 z"
+           id="path2999"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend)"
+           d="m 203.04066,978.12362 60.19285,0"
+           id="path3001"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend)"
+           d="m 482.85292,978.12362 60.60915,0"
+           id="path3003"
+           inkscape:connector-curvature="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:30px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="375.43701"
+           y="973.07288"
+           id="text4397"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4399"
+             x="375.43701"
+             y="973.07288"
+             style="font-size:25px">Salle à étudier</tspan><tspan
+             sodipodi:role="line"
+             x="375.43701"
+             y="1004.3229"
+             id="tspan4401"
+             style="font-size:25px">h(t)</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="28.284271"
+           y="965.48914"
+           id="text4403"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4405"
+             x="28.284271"
+             y="965.48914"
+             style="font-size:25px">Signal quelconque</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="491.51331"
+           y="963.29468"
+           id="text4403-5"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4405-6"
+             x="491.51331"
+             y="963.29468"
+             style="font-size:25px">Signal diffusé</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="12.12183"
+           y="1006.9053"
+           id="text4428"
+           sodipodi:linespacing="125%"><tspan
+             id="tspan3098"
+             sodipodi:role="line"
+             x="12.12183"
+             y="1006.9053"
+             style="font-size:25px">αx<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4447">1</tspan>(t−τ) + γx<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4449">2</tspan>(t−τ)</tspan><tspan
+             sodipodi:role="line"
+             x="12.12183"
+             y="1038.1553"
+             id="tspan4432" /></text>
+        <text
+           xml:space="preserve"
+           style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="493.9646"
+           y="1010.946"
+           id="text4451"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4453"
+             x="493.9646"
+             y="1010.946">αy<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4455">1</tspan>(t−τ) + γy<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4457">2</tspan>(t−τ)</tspan></text>
+      </g>
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4459"
+       style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion4461"><rect
+           id="rect4463"
+           width="690.94434"
+           height="204.05081"
+           x="39.39595"
+           y="1.5075759" /></flowRegion><flowPara
+         id="flowPara4465" /></flowRoot>  </g>
+</svg>

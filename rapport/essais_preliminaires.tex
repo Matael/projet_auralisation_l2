@@ -9,38 +9,6 @@ essais préliminaires sont menés.
 % - nécessité du calage temporel
 % - moyens de comparaison fréquentielle
 
-\section{Fenêtrage temporel des réponses impulsionnelles} % {{{1
-
-\begin{figure}[h!]
-\centering{\includegraphics[width=15cm]{ri_non_recoupee.png}}
-\caption{\label{ri_non_recoupee}Une des RI mesurées avant le fenêtrage (ici, le canal gauche d'une RI binaurale en salle
-Mersenne). La figure a) montre la RI avant fenêtrage et la figure b) la même RI après fenêtrage}.
-\end{figure}
-
-Lors de la prise de réponses impulsionnelles, afin de ne pas dégrader l'information en «coupant» les réflexions les plus
-tardives, les mesures sont faites sur des temps assez longs (voir figure~\ref{ri_non_recoupee});
-
-De telles mesures posent plusieurs soucis, d'abord en terme de stockage mais aussi en terme de temps de calcul.
-
-Les mesures de RI sont donc fenêtrées pour éliminer les blancs avant et après du traitement. Afin de conserver les
-fichiers originaux et d'éviter l'apparition d'incohérences dans les fichiers de mesures, les fenêtrages sont codés en
-dur dans les scripts de traitement et les fichiers de mesures sont laissés tels quels.
-
-Il semble intéressant enfin de regarder quelle influence a le fenêtrage d'une RI sur le processus d'auralisation.
-
-\begin{figure}[h!]
-\centering{\includegraphics[width=15cm]{spks_ri_recoupe_superimposed.png}}
-\caption{\label{spectres_recoupage}Les spectres des sons resultant de la convolution avec une RI fenêtrée (en rouge) et
-non fenêtrée (en bleu). Même si les écarts sont faibles, ils existent.}
-\end{figure}
-
-Après deux tests, il apparaît que le fenêtrage des RI apporte un gain non négligeable en terme de temps de
-calculs\footnote{une partie des calculs étant faits sur une machine peu puissante, cette composante est importante}.
-Toutefois, comme le montre la figure~\ref{spectres_recoupage}, on remarque que les spectres de signaux convolués avec
-une RI fenêtrée d'une part et non fenêtrés de l'autre ne sont pas identiques. Il faut malgré tout préciser que
-perceptivement l'utilisation d'une RI fenêtrée rend le son plus net et moins bruité (plus réaliste en fait). Cela vient
-probablement de l'élimination par fenêtrage du bruit de fond avant et après le son utile.
-
 \section{Réduction du temps de calcul : procédé de convolution} % {{{1
 \label{acceleration_des_calculs}
 
@@ -64,7 +32,7 @@ sont plus rapides que pour celle du milieu.}
 La tranformée de Fourier (TF) est une opération qui n'est pas strictement réversible et qui entraine une légère perte de
 données :
 
-$$TF^{-1}\left\{TF\left\{s(t)\right\}\right\} \approx s(t)$$
+$$\mathcal{F}^{-1}\left\{\mathcal{F}\left\{s(t)\right\}\right\} \approx s(t)$$
 
 La fonction \texttt{conv()} proposée par \matlab et GNU/Octave réalise une convolution mathématique stricte (au sens
 discret). Celle ci est toutefois très lente sur des machines peu puissantes.
@@ -109,6 +77,38 @@ le graphe des distances est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.
 
 Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en temps de calcul
 réalisé, cette fonction semble largement plus avantageuse que \texttt{conv()}.
+
+\section{Fenêtrage temporel des réponses impulsionnelles} % {{{1
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=15cm]{ri_non_recoupee.png}}
+\caption{\label{ri_non_recoupee}Une des RI mesurées avant le fenêtrage (ici, le canal gauche d'une RI binaurale en salle
+Mersenne). La figure a) montre la RI avant fenêtrage et la figure b) la même RI après fenêtrage}.
+\end{figure}
+
+Lors de la prise de réponses impulsionnelles, afin de ne pas dégrader l'information en «coupant» les réflexions les plus
+tardives, les mesures sont faites sur des temps assez longs (voir figure~\ref{ri_non_recoupee});
+
+De telles mesures posent plusieurs soucis, d'abord en terme de stockage mais aussi en terme de temps de calcul.
+
+Les mesures de RI sont donc fenêtrées pour éliminer les blancs avant et après du traitement. Afin de conserver les
+fichiers originaux et d'éviter l'apparition d'incohérences dans les fichiers de mesures, les fenêtrages sont codés en
+dur dans les scripts de traitement et les fichiers de mesures sont laissés tels quels.
+
+Il semble intéressant enfin de regarder quelle influence a le fenêtrage d'une RI sur le processus d'auralisation.
+
+\begin{figure}[h!]
+\centering{\includegraphics[width=15cm]{spks_ri_recoupe_superimposed.png}}
+\caption{\label{spectres_recoupage}Les spectres des sons resultant de la convolution avec une RI fenêtrée (en rouge) et
+non fenêtrée (en bleu). Même si les écarts sont faibles, ils existent.}
+\end{figure}
+
+Après deux tests, il apparaît que le fenêtrage des RI apporte un gain non négligeable en terme de temps de
+calculs\footnote{une partie des calculs étant faits sur une machine peu puissante, cette composante est importante}.
+Toutefois, comme le montre la figure~\ref{spectres_recoupage}, on remarque que les spectres de signaux convolués avec
+une RI fenêtrée d'une part et non fenêtrés de l'autre ne sont pas identiques. Il faut malgré tout préciser que
+perceptivement l'utilisation d'une RI fenêtrée rend le son plus net et moins bruité (plus réaliste en fait). Cela vient
+probablement de l'élimination par fenêtrage du bruit de fond avant et après le son utile.
 
 \section{Type de sons pour les tests} % {{{1
 
