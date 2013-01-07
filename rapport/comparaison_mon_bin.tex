@@ -58,11 +58,21 @@ correctement restituées lors de la convolution.
 
 \begin{figure}[h!]
     \centering{\includegraphics[width=13cm]{temporel_reverb.png}}
-	\caption{\label{}Comparaison entre les contenus fréquentiels des signaux monaural et
-	binaural dans la bande 150-175Hz. On remarque que le signal monaural vient effectivement s'intercaler entre les
-	2 canaux du signal binaural (en haut monaural et canal droit, en bas monaural et canal gauche). Une représentation
-pleine échelle est disponible en annexe}
+	\caption{\label{temporel_reverb}Tracé des différents signaux et résultat de la convolution en temporel. En a) la
+    RI utilisée, en b) le son anéchoïque, en c) le résultat après convolution des deux signaux précédents.}
 \end{figure}
 
+La figure~\ref{temporel_reverb} montre les différents signaux utilisés et leur convolution. Ici, le résultat est donné
+en monaural, on note que les réflexions visibles sur la RI sont clairement restituées sur le signal final.
 
+En binaural résultat de chaque canal ressemble très fortement au résultat en monoral présenté si-avant.
 
+\subsection{Comparaison perceptive} % {{{2
+
+L'écoute se fait sur les convolutions binaurales.
+
+Perceptivement, le résultat est probant. L'influence de la salle réverbérante s'entend très bien et l'immersion se fait
+sans souci.
+
+La provenance du son est moins clairement identifiable que pour une salle plus matte (salle Mersenne par exemple),
+mais toujours nettement plus identifiable qu'en monaural.
