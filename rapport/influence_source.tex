@@ -100,4 +100,29 @@ de la valeur absolue au carré du spectre. Cela nous donne le spectre d'énergie
 On remarque que l'énergie se situe principalement dans les basses fréquences (en deçà de 100Hz) et que 2 pics viennent
 potentiellement perturber la RI entre 200 et 400Hz.
 
-% TODO : Déconvolution
+\section{Compensation de la source} % {{{1
+
+Les sources utilisées ne sont donc pas parfaites, cependant il est possible de les prendre en considération lors du calcul du son convolué.
+En effet, les imperfections dues à la chaîne d'excitation peuvent être modélisées par un filtre qui viendrait "avant" la salle modélisée par un système linéaire. De plus la chaîne d'acquisition est elle supposée parfaite ; en pratique ce n'est pas tout à fait le cas, mais devant l'imperfection de la chaine d'excitation l'approximation est correcte. Cette configuration est représentée sur le schéma figure~\ref{compensation}.
+\begin{figure}[h!]
+\centering{\includegraphics[width=10cm]{g4322.png}}
+\caption{\label{compensation}Schéma du système étudié avec prise en compte de la chaîne d'excitation}
+\end{figure}
+Afin de pouvoir compenser la chaine d'excitation ; il faut donc determiner $y(t)$. Cette grandeur correspond, dans le cas du ballon, à la fonction permettant de passer d'une impulsion parfaite à celle donnée par le ballon : il s'agit de la fonction de transfert du balon. En définitif, pour connaitre cette fonction de transfert, une mesure de l'éclatement d'un ballon en salle anéchoïque (là où la salle a le moins d'influence) est réalisée. Cette mesure est présentée en figure~\ref{spk_ballon_anecho}.
+Une fois $y(t)$ determiné, il ne reste qu'à en déduire $h(t)$.
+On sait que :
+\begin{eqnarray*}
+s_1 (t) \ast y(t) = s_2 (t) \leftrightarrow S_1 (F) \times Y(F) = S_2 (F)\\
+s_2 (t) \ast h (t) = s_3 (t) \leftrightarrow S_2 (F) \times H(F) = S_3 (F)
+\end{eqnarray*}
+On peut donc en déduire que :
+\begin{eqnarray*}
+h(t) = \mathcal{F}^{-1}\left\{ \frac{S_3 (F)}{S_2(F)}\right\} 
+\end{eqnarray*}
+Bien que retrouver la réponse impulsionnelle de la salle exempte de l'infuence du ballon semble simple sur un plan théorique, d'un point de vu pratique, de grosses difficultés ont été rencontrées. En effet, voici la réponse impulsionnelle obtenue dans le domaine temporel :
+\begin{figure}[h!]
+\centering{\includegraphics[width=10cm]{spk_compensation.png}}
+\caption{\label{bizarre}Réponse impulsionnelle calculée représentée temporellement et fréquentiellement}
+\end{figure}
+Le résultat ne semble donc pas concluant. Il est probable que le problème vienne des modifications éventuelles qu'apporte la transformée de Fourier au niveau de la phase des signaux. Cependant nos connaissances sur le sujet sont trop limités pour permettre de se pencher de manière approfondie sur la question.
+
