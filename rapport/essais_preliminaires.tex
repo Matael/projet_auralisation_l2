@@ -1,6 +1,6 @@
 \chapter{Essais et Informations Préliminaires}
 
-Avant de chercher à comparer différentes techniques d'auralisation, une étude des moyens de comparaison et divers
+Avant de mettre en place des auralisations concrètes, une étude des moyens de comparaison et divers
 essais préliminaires sont menés.
 
 % TODO
@@ -24,15 +24,8 @@ figure~\ref{lien_convo_projet}).
 \centering{\includegraphics[width=9cm]{lien_convo_projet.png}}
 \caption{\label{lien_convo_projet}Lien entre le projet et la convolution. En haut, la convolution «physique» (lorsque
 qu'un signal $s(t)$ est émis dans la salle (de réponse impulsionnelle $H(t)$. Au milieu la convolution mathématique au
-sens strict (\textit{via} l'opération consacrée). En bas, la convolution mathématique en utilisant la propriété de
-symétrie entre convolution temporelle et multiplication fréquentielle. La chaine du bas est plus longue mais les calculs
-sont plus rapides que pour celle du milieu.}
+sens strict (\textit{via} l'opération dédiée). En bas, la convolution mathématique en utilisant l'équivalence entre convolution temporelle et multiplication fréquentielle.}
 \end{figure}
-
-La tranformée de Fourier (TF) est une opération qui n'est pas strictement réversible et qui entraine une légère perte de
-données :
-
-$$\mathcal{F}^{-1}\left\{\mathcal{F}\left\{s(t)\right\}\right\} \approx s(t)$$
 
 La fonction \texttt{conv()} proposée par \matlab et GNU/Octave réalise une convolution mathématique stricte (au sens
 discret). Celle ci est toutefois très lente sur des machines peu puissantes.
@@ -57,9 +50,15 @@ c = ifft(A.*B,n);
 c = real(c(1:na+nb-1));
 \end{Verbatim}
 
+La transformée de Fourier (TF) est une opération qui n'est pas strictement réversible et qui entraine une légère perte de
+données :
+
+$$\mathcal{F}^{-1}\left\{\mathcal{F}\left\{s(t)\right\}\right\} \approx s(t)$$
+
+
 Il semble intéressant de s'intéresser (au moins un peu) à l'erreur induite par l'utilisation de \texttt{fftconv()}
-plutot que \texttt{conv}. La même convolution est réalisée avec chacune des fonctions, puis une simple distance
-géométrique est utilisée pour calculer la distance existant entre les deux signaux : 
+plutot que \texttt{conv()}. La même convolution est réalisée avec chacune des fonctions, puis une un calcul de distance
+géométrique est utilisée pour déterminer la différence existant entre les deux signaux : 
 
 $$ d(t) = \sqrt{\left|\left[s_1(t)\right]^2 - \left[s_2(t)\right]^2\right|}$$
 
@@ -75,25 +74,25 @@ entre les 2 graphes au dessus), l'axe des ordonnées est gradué entre $2\cdot10
 Le graphe obtenu est présenté en figure~\ref{comp_conv_fftconv}, il faut notamment noter que l'axe des ordonnées sur
 le graphe des distances est gradué entre $2\cdot10^{-7}$ et $2\cdot10^{-6}$.
 
-Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en temps de calcul
-réalisé, cette fonction semble largement plus avantageuse que \texttt{conv()}.
+Devant la faible amplitude de l'erreur provoquée par l'utilisation de \texttt{fftconv()} et le gain en terme de temps de calcul
+, cette fonction semble largement plus avantageuse que \texttt{conv()}.
 
 \section{Fenêtrage temporel des réponses impulsionnelles} % {{{1
 
 \begin{figure}[h!]
-\centering{\includegraphics[width=15cm]{ri_non_recoupee.png}}
+\centering{\includegraphics[width=15cm,height=7cm]{ri_non_recoupee.png}}
 \caption{\label{ri_non_recoupee}Une des RI mesurées avant le fenêtrage (ici, le canal gauche d'une RI binaurale en salle
 Mersenne). La figure a) montre la RI avant fenêtrage et la figure b) la même RI après fenêtrage}.
 \end{figure}
 
 Lors de la prise de réponses impulsionnelles, afin de ne pas dégrader l'information en «coupant» les réflexions les plus
-tardives, les mesures sont faites sur des temps assez longs (voir figure~\ref{ri_non_recoupee});
+tardives, les mesures sont faites sur des temps assez longs (voir figure~\ref{ri_non_recoupee}).
 
 De telles mesures posent plusieurs soucis, d'abord en terme de stockage mais aussi en terme de temps de calcul.
 
-Les mesures de RI sont donc fenêtrées pour éliminer les blancs avant et après du traitement. Afin de conserver les
-fichiers originaux et d'éviter l'apparition d'incohérences dans les fichiers de mesures, les fenêtrages sont codés en
-dur dans les scripts de traitement et les fichiers de mesures sont laissés tels quels.
+Les mesures de RI sont donc fenêtrées pour éliminer les blancs avant et après le signal utile. Afin de conserver les
+fichiers originaux et d'éviter l'apparition d'incohérences dans les fichiers de mesures, les fenêtrages sont paramétrés
+à la main et appliqués dans les scripts de traitement et les fichiers de mesures sont laissés tels quels.
 
 Il semble intéressant enfin de regarder quelle influence a le fenêtrage d'une RI sur le processus d'auralisation.
 
@@ -112,11 +111,11 @@ probablement de l'élimination par fenêtrage du bruit de fond avant et après l
 
 \section{Type de sons pour les tests} % {{{1
 
-Le choix des sons de test est un choix assez important dans le sens où il faut que ceux si soient suffisament génériques
+Le choix des sons de test est un choix assez important dans le sens où il faut que ceux-ci soient suffisament génériques
 pour ne pas biaiser les résultats mais assez particuliers pour que les altérations produites par la salle cible soient
 audibles (ou visibles).
 
-D'après Kleiner et coll., la parole ou la musique sont de bons sons de test~\cite{Kle93}. le choix des sons de test
+D'après Kleiner et coll., la parole ou la musique sont de bons sons de test~\cite{Kle93}. le choix des sons 
 s'est donc porté sur :
 
 \begin{itemize}
@@ -128,7 +127,8 @@ s'est donc porté sur :
 Les deux premiers sons proviennent du site de partage de sons
 \textit{Freesound}\footnote{\url{http://www.freesound.org/}, merci à \textit{Anton}
 (\url{http://www.freesound.org/people/Anton/}) d'avoir posté ces sons là.} ; ils ont été enregistrés en salle anéchoïque
-et échantilonnés à 96 kHz.
+et échantilonnés à 96 kHz. Ils sont ré-échantillonné à 51200Hz (la fréquence utilisé par \textit{Analyseur CTTM} pour
+les mesures).
 
 La chanson quant à elle provient d'un album studio et l'enregistrement est donc teinté de la signature de la salle
 d'enregistrement.
@@ -136,21 +136,21 @@ d'enregistrement.
 \section{Restitution et écoute post-auralisation} % {{{1
 
 Le succès d'une auralisation repose grandement sur les conditions de l'écoute finale. En effet, il faut que le son à
-écouter soit le moins altéré possible par les conditions d'écoute. Deux moyens d'écoute existent (notamment dans le cas
-d'écoute de résultats binauraux) : au casque ou \textit{via} des HP et un système de restitution. 
+écouter soit le moins altéré possible par l'environnement d'écoute. Deux moyens d'écoute existent (notamment dans le cas
+d'écoute de résultats binauraux) : au casque ou \textit{via} des haut-parleurs et un système de restitution. 
 
 Si la première méthode ne pose pour ainsi dire aucun problème, la seconde est nettement plus complexe.
 Comme il s'agit d'une auralisation binaurale, les deux canaux (droite et gauche) sont différenciés et il est important
 que chaque oreille ne capte que ce qui lui est destiné.
 
 Il y a donc des règles à respecter au niveau du système de restitution avec notament un système
-anti-diaphonie~\cite{Kle93}. De tels systèmes sont parfois difficiles à mettre en place notamment dans salles assez
+anti-diaphonie~\cite{Kle93}. De tels systèmes sont parfois difficiles à mettre en place notamment dans des salles assez
 grandes, ceci étant dû au second problème soulevé par une restitution hors casque : il faut que l'empreinte acoustique
 soit faible pour ne pas perturber le son émis~\cite{Bru10}.
 
 \section{Salles auralisées} % {{{1
 
-Deux salles ont été utilisées au cours du projet :
+Deux salles sont utilisées au cours du projet :
 
 \begin{itemize}
     \item la salle de TP Mersenne (voir figure~\ref{plan_mersenne}) ;
@@ -159,8 +159,8 @@ Deux salles ont été utilisées au cours du projet :
 
 \begin{figure}[h!]
     \centering{\includegraphics[width=10cm]{plan_mersenne.png}}
-    \caption{\label{plan_mersenne}Plan de la salle Mersenne. La source a toujours été placée au point noté
-    \textbf{Source}. Le micro (pour les prises monaurales) et la tête on toujours étés placés en \textbf{P1} ou
-    \textbf{P2}. L'orientation par dédfaut de la tête est vers le couloir pour \textbf{P1} et vers la source pour
+    \caption{\label{plan_mersenne}Plan de la salle Mersenne. La source est été placée au point noté
+    \textbf{Source}. Le micro (pour les prises monaurales) et la tête sont toujours placés en \textbf{P1} ou
+    \textbf{P2}. L'orientation par défaut de la tête est vers le couloir pour \textbf{P1} et vers la source pour
     \textbf{P2}. La source est toujours orientée vers le récepteur.}
 \end{figure}

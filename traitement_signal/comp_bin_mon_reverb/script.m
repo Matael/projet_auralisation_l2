@@ -11,10 +11,11 @@ Fe = 51200;
 
 % quelques sons
 fichiers = {'','handclaps_51k2';
-'','cles_51k2';
-'','chanson_51k2'};
+% '','cles_51k2';
+% '','chanson_51k2'
+};
 
-RI = 'mesure_reverb_ri_tete';
+RI = 'mesure_reverb_ri_tete_cote_droite';
 RI_mono = 'seance2_reverb1';
 
 % charger la RI
@@ -37,8 +38,9 @@ count = 1;
 
 disp(['File to process : ' num2str(len)]);
 while count<=len
-	son = char(fichiers(count,2));
-	fichier_courant = char(fichiers(count,1));
+	% son = char(fichiers(count,2));
+	son = 'handclaps_51k2';
+	% fichier_courant = char(fichiers(count,1));
 	disp(['Processing: ' son]);
 
 	% % on recrée la référence
@@ -50,16 +52,16 @@ while count<=len
 	% on convolue
 	disp('--> Convolution RI*Sound');
 	son_anecho = wavread(['../reserve_sons/' son '.wav']);
-	resultat_g = normalize(fftconv(ri_gauche, son_anecho(:,1)));
-	resultat_d = normalize(fftconv(ri_droite, son_anecho(:,1)));
-	result_conv = [resultat_g' ; resultat_d']';
+	resultat_g = fftconv(ri_gauche, son_anecho(:,1));
+	resultat_d = fftconv(ri_droite, son_anecho(:,1));
+	result_conv = ([resultat_g' ; resultat_d']');
 	wavwrite(result_conv, 51200, ['conv_' son suffixe '.wav']);
 
 	% on convolue
 	disp('--> Convolution RI_mono*Sound');
-	resultat_g = normalize(fftconv(ri_mono, son_anecho(:,1)));
-	resultat_d = normalize(fftconv(ri_mono, son_anecho(:,1)));
-	result_conv = [resultat_g' ; resultat_d']';
+	resultat_g = fftconv(ri_mono, son_anecho(:,1));
+	resultat_d = fftconv(ri_mono, son_anecho(:,1));
+	result_conv = ([resultat_g' ; resultat_d']');
 	wavwrite(result_conv, 51200, ['conv_mono_' son suffixe '.wav']);
 
 	% on génère un graphe en temporel
