@@ -88,6 +88,8 @@ La transformée de Fourier est définie de la manière suivante:
     \mathcal{F}\{x(t)\} = \int_{-\infty}^{+\infty} x(t) e^{-2i\pi Ft} \mathrm dt
 \end{equation}
 
+\newpage % MISE EN PAGE
+
 Une des propriétés intéressantes concerne la transformée de Fourier d'un produit de convolution :
 
 \begin{eqnarray*}
@@ -102,7 +104,7 @@ On pose $v= t- u$, on a donc $t= u+v$ à $u$ fixé,
     \mathcal{F}\left\{x(t) \ast y(t)\right\} & = & \int_{-\infty}^{+\infty}  \left[ \int_{-\infty}^{+\infty} x(u)y(v)  e^{-2i\pi F(v+u)} \right] \mathrm du \mathrm dv\\
     & = & \int_{-\infty}^{+\infty}  x(u) e^{-2i\pi Fu}  \mathrm du
     \int_{-\infty}^{+\infty} y(v) e^{-2i\pi Fv} \mathrm dv \\
-    & = & \hat{x}(F) + \hat{y}(F)
+    & = & \hat{x}(F) \cdot \hat{y}(F)
 \end{eqnarray*}
 
 La transformée de Fourier du produit de convolution de 2 signaux est donc égale à la multiplication des transformées de Fourier de chacun des signaux.
