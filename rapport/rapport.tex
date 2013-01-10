@@ -10,15 +10,6 @@
 	\usepackage{graphicx}
     \usepackage{lastpage}
     \usepackage{fancyhdr}
-    \pagestyle{fancy}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{.4pt}
-    \lhead{}
-    \chead{}
-    \rhead{}
-    \lfoot{\textsc{Lechat -- Wang -- Gaborit}}
-    \cfoot{}
-    \rfoot{\thepage/\pageref{LastPage}}
 
     \usepackage{fancyvrb} % pour forcer les verbatim sur une seule page
     \usepackage{url}
@@ -49,8 +40,31 @@
     \renewcommand{\thesubsection}{\Roman{chapter}.\arabic{section}.\Alph{subsection}.}
 
     \newcommand\matlab{MATLab\textsuperscript{\textregistered}}
+
+    \pagestyle{fancy}
+
+    \fancypagestyle{plain}{%
+        \fancyhf{} % clear all header and footer fields
+        \fancyfoot[L]{\textsc{Lechat -- Wang -- Gaborit}}
+        \fancyfoot[C]{}
+        \fancyfoot[R]{\thepage/\pageref{LastPage}}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{.4pt}
+    }
+
+
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{.4pt}
+    \lhead{}
+    \chead{}
+    \rhead{}
+    \lfoot{\textsc{Lechat -- Wang -- Gaborit}}
+    \cfoot{}
+    \rfoot{\thepage/\pageref{LastPage}}
+
     % }}}
 \begin{document}
+
 
 % page de titre [PAS TOUCHE] {{{1
 \begin{titlepage}
