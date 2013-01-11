@@ -7,7 +7,6 @@
 
     \usetheme{Warsaw}
 
-
     % Faire apparaître un sommaire avant chaque section
     \AtBeginSection[]{
         \begin{frame}
@@ -17,12 +16,12 @@
         \end{frame} 
     }
 
-
+    \addtobeamertemplate{footline}{\color{gray}{\insertframenumber{}/\inserttotalframenumber}}
 
     \title[Projet Auralisation]{Projet Auralisation}
-    \institute{L2 SPI TD2 -- Christophe Ayrault}
+    \institute{L2 SPI TD2\\Novembre 2012 -- Janvier 2013}
     \author{\textsc{Lechat} T. -- \textsc{Wang} X. -- \textsc{Gaborit} M.}
-    \date{Novembre 2012 -- Janvier 2013}
+    \date{Christophe Ayrault\\Maître de Conférence}
 
 \begin{document}
 
@@ -40,9 +39,10 @@
 
 \begin{frame}
 
+Bref historique :
 \begin{itemize}
     \item premières recherches en 1929 par Spandöck
-    \item Création du mot "auralisation" par Kleiner en 1993
+    \item «création» du mot "auralisation" par Kleiner en 1993
 \end{itemize}
 
 Aujourd'hui :
@@ -81,7 +81,18 @@ s(t) = e(t)\ast h(t)
 \end{equation*}
 \end{frame}
 
-\section{Mesures, procédés}
+
+\section{Traitement du signal}
+
+\begin{frame}
+\begin{itemize}
+    \item normalisation de matrices
+    \item détection d'un \textit{bug} dans \textit{Analyseur CTTM}
+    \item Réimplémentation de \texttt{fftconv()}
+\end{itemize}
+\end{frame}
+
+\section{Etude monaurale}
 
 \begin{frame}
 \begin{figure}
@@ -91,6 +102,8 @@ s(t) = e(t)\ast h(t)
 Convolution entre une RI de salle réverbérante et un signal ancéhoïque
 \end{center}
 \end{frame}
+
+\section{Etude binaurale}
 
 \begin{frame}
 \begin{figure}
@@ -110,33 +123,33 @@ Plan de la salle Mersenne
 \end{center}
 \end{frame}
 
-\section{Traitement du signal}
-
-\begin{frame}
-\begin{itemize}
-    \item normalisation de matrices
-    \item détection d'un \textit{bug} dans \textit{Analyseur CTTM}
-    \item Réimplémentation de fftconv()
-\end{itemize}
-\end{frame}
-
-\section{Synthèse des résultats}
-
 \begin{frame}
 \begin{itemize}
     \item Écoute par plusieurs personnes : synthèse
+    \begin{itemize}
+        \item bon repérage dans le plan horizontal
+        \item identification du type de salle
+    \end{itemize}
     \item Nécessité de prises de RI binaurales
-    \item Essai avec un autre volume
 \end{itemize}
  \end{frame}
 
-\section{Optimisations}
+\section{Conclusion et optimisations possibles}
 
 \begin{frame}
+
+\begin{itemize}
+    \item mise en place de l'auralisation assez simple ;
+    \item optimisation assez difficiles même si résultats probants ;
+    \item prise en compte de la binauralité importante pour l'immersion
+\end{itemize}
+
+Optimisations possibles :
+
 \begin{itemize}
     \item prise en compte de la chaine d'excitation et de mesure
     \item amélioration des RI sans changer de source
-    \item système CLIO\textsuperscript{\textsc{TM}}
+    \item système CLIO\textsuperscript{\textsc{TM}} (signaux MLS)
 \end{itemize}
 \end{frame}
 
