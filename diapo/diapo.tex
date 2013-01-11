@@ -1,4 +1,9 @@
 \documentclass{beamer}
+% \documentclass[handout]{beamer}
+
+    % \usepackage{pgfpages}
+    % \pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm, landscape]
+
 
     \usepackage[utf8]{inputenc}
     \usepackage[T1]{fontenc}
@@ -6,6 +11,10 @@
     \usepackage{url}
 
     \usetheme{Warsaw}
+
+    \logo{%
+            \includegraphics[scale=0.06]{logo}
+    }
 
     % Faire apparaître un sommaire avant chaque section
     \AtBeginSection[]{
@@ -21,7 +30,7 @@
     \title[Projet Auralisation]{Projet Auralisation}
     \institute{L2 SPI TD2\\Novembre 2012 -- Janvier 2013}
     \author{\textsc{Lechat} T. -- \textsc{Wang} X. -- \textsc{Gaborit} M.}
-    \date{Christophe Ayrault\\Maître de Conférence}
+    \date{Christophe Ayrault\\Maître de Conférence\\\bigskip\scalebox{2}{\insertlogo}}
 
 \begin{document}
 
