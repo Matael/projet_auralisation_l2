@@ -54,12 +54,12 @@ Bref historique :
     \item «création» du mot "auralisation" par Kleiner en 1993
 \end{itemize}
 
-Aujourd'hui :
+Aujourd'hui, application à :
 
 \begin{itemize}
-    \item application à l'architecture
-    \item application à l'acoustique urbaine
-    \item application à la réalité virtuelle
+    \item l'architecture
+    \item l'acoustique urbaine
+    \item la réalité virtuelle
     \item travaux sur la psycho-acoustique (sons 3D)
 \end{itemize}
 
@@ -94,10 +94,17 @@ s(t) = e(t)\ast h(t)
 \section{Traitement du signal}
 
 \begin{frame}
+
+Scripts :
 \begin{itemize}
-    \item normalisation de matrices
-    \item détection d'un \textit{bug} dans \textit{Analyseur CTTM}
-    \item Réimplémentation de \texttt{fftconv()}
+    \item normalisation de matrices ;
+    \item réimplémentation de \texttt{fftconv()}.
+\end{itemize}
+
+Autres essais :
+\begin{itemize}
+    \item déconvolution ;
+    \item combinaison de sources.
 \end{itemize}
 \end{frame}
 
@@ -108,7 +115,7 @@ s(t) = e(t)\ast h(t)
 \centering{\includegraphics[width=8.5cm]{temporel_reverb.png}}
 \end{figure}
 \begin{center}
-Convolution entre une RI de salle réverbérante et un signal ancéhoïque
+Convolution entre une RI de salle réverbérante et un signal anéchoïque
 \end{center}
 \end{frame}
 
@@ -134,12 +141,12 @@ Plan de la salle Mersenne
 
 \begin{frame}
 \begin{itemize}
-    \item Écoute par plusieurs personnes : synthèse
+    \item Écoute par plusieurs personnes : synthèse :
     \begin{itemize}
-        \item bon repérage dans le plan horizontal
-        \item identification du type de salle
+        \item bon repérage dans le plan horizontal ;
+        \item identification du type de salle.
     \end{itemize}
-    \item Nécessité de prises de RI binaurales
+    \item Nécessité de prises de RI binaurales.
 \end{itemize}
  \end{frame}
 
@@ -147,18 +154,20 @@ Plan de la salle Mersenne
 
 \begin{frame}
 
-\begin{itemize}
-    \item mise en place de l'auralisation assez simple ;
-    \item optimisation assez difficiles même si résultats probants ;
-    \item prise en compte de la binauralité importante pour l'immersion
-\end{itemize}
-
 Optimisations possibles :
 
 \begin{itemize}
-    \item prise en compte de la chaine d'excitation et de mesure
-    \item amélioration des RI sans changer de source
-    \item système CLIO\textsuperscript{\textsc{TM}} (signaux MLS)
+    \item prise en compte de la chaine d'excitation et de mesure ;
+    \item amélioration des RI sans changer de source ;
+    \item système CLIO\textsuperscript{\textsc{TM}} (signaux MLS).
+\end{itemize}
+
+Finalement :
+
+\begin{itemize}
+    \item mise en place de l'auralisation assez simple ;
+    \item optimisation assez difficiles même si résultats probants ;
+    \item prise en compte de la binauralité importante pour l'immersion.
 \end{itemize}
 \end{frame}
 
